@@ -6,9 +6,9 @@ public class breakable : MonoBehaviour
 {
     private Rigidbody2D body;
     // Start is called before the first frame update
-    void Start()
+    void Start() 
     {
-        body = gameObject.GetComponent<Rigidbody2D>();
+        body = gameObject.GetComponent<Rigidbody2D>(); // load rigidbody of the platform this is attached to
     }
 
     private void OnCollisionExit2D(Collision2D collision) // when LEAVING the section
