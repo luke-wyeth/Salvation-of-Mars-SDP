@@ -38,9 +38,15 @@ public class CloneController : MonoBehaviour
         pBody = player.GetComponent<Rigidbody2D>();
         cBody = clone.GetComponent<Rigidbody2D>();
 
+        // get player and clone arrows automatically - easier than manually having to add in each scene
+        playerArrow = GameObject.Find("pArrow");
+        cloneArrow = GameObject.Find("cArrow");
+
         cloneVisible = false; // set current state of clone
 
         clone.SetActive(false);
+
+
 
         playerArrow.SetActive(false);
         cloneArrow.SetActive(false);
