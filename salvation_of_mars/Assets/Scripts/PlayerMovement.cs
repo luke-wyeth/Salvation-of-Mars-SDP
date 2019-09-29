@@ -63,12 +63,14 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        //animator.SetBool("InBoost", false); what stops the boost aniamtion.
     }
 
     public void ReverseGrav() // called when button to use reverse gravity ability is triggered
     {
         if (Time.time > nextReversed) // has cooldown time passed?
         {
+            animator.SetBool("IsJumping", true);
             Physics2D.gravity *= -1;
             controller.reverseGrav = !controller.reverseGrav;
             lastReversed = Time.time;
@@ -78,12 +80,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpeedBoost() // called when button to use speed boost ability is triggered
     {
+        
         if (Time.time > nextBoost) // has cooldown time passed?
         {
+            animator.SetBool("InBoost", true); // starts boost animation 
             controller.speedBoost = true;
             lastBoost = Time.time;
             nextBoost = lastBoost + 1f; // reset cooldown
         }
+
+  
+        
     }
 
     public void Jump()
