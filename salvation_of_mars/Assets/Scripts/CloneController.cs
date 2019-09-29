@@ -16,6 +16,9 @@ public class CloneController : MonoBehaviour
     public bool cFrozen; // clone frozen status
     public bool pFrozen; // player frozen status
 
+    public GameObject playerArrow;
+    public GameObject cloneArrow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +38,18 @@ public class CloneController : MonoBehaviour
         pBody = player.GetComponent<Rigidbody2D>();
         cBody = clone.GetComponent<Rigidbody2D>();
 
+        // get player and clone arrows automatically - easier than manually having to add in each scene
+        playerArrow = GameObject.Find("pArrow");
+        cloneArrow = GameObject.Find("cArrow");
+
         cloneVisible = false; // set current state of clone
 
         clone.SetActive(false);
+
+
+
+        playerArrow.SetActive(false);
+        cloneArrow.SetActive(false);
     }
 
     // Update is called once per frame
@@ -82,6 +94,7 @@ public class CloneController : MonoBehaviour
             playerControl.enabled = false; // disable control of the player
             cloneControl.enabled = true; // enable control of the clone
 
+            cloneArrow.SetActive(true);
         }
         // if clone is already created, switch control to opposite (e.g switch from clone to player or vice versa)
         else if (cloneVisible)
@@ -93,6 +106,9 @@ public class CloneController : MonoBehaviour
             // flip which character control is enabled
             playerControl.enabled = !playerControl.enabled;
             cloneControl.enabled = !cloneControl.enabled;
+
+            cloneArrow.SetActive(!cloneArrow.activeSelf);
+            playerArrow.SetActive(!playerArrow.activeSelf);
         }
 
     }
