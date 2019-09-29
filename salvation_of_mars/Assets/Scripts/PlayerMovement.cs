@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     float nextReversed;
     float nextBoost;
 
+    float animStarted;
+
     public Animator animator;
 
     // used to GET input from player
@@ -58,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
         // args: (movement, crouch yes/no, jump yes/no)
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
+
+        if((Time.time - 0.4f) > animStarted) // if boost animation should finish, end it
+        {
+            animator.SetBool("InBoost", false);
+        }
     }
 
     public void OnLanding()
@@ -80,17 +87,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpeedBoost() // called when button to use speed boost ability is triggered
     {
-        
+
         if (Time.time > nextBoost) // has cooldown time passed?
         {
             animator.SetBool("InBoost", true); // starts boost animation 
+            animStarted = Time.time;
+
             controller.speedBoost = true;
             lastBoost = Time.time;
             nextBoost = lastBoost + 1f; // reset cooldown
         }
-
-  
-        
     }
 
     public void Jump()
