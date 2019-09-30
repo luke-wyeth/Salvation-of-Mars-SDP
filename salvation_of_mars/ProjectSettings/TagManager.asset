@@ -9,6 +9,7 @@ TagManager:
   - pushable
   - MovingPlatform
   - Grabbable
+  - Deadly
   layers:
   - Default
   - TransparentFX
