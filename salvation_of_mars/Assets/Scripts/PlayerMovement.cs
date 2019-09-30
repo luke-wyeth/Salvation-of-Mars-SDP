@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
 
-        if((Time.time - 0.4f) > animStarted) // if boost animation should finish, end it
+        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
         {
             animator.SetBool("InBoost", false);
         }
@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time > nextBoost) // has cooldown time passed?
         {
             animator.SetBool("InBoost", true); // starts boost animation 
+            animator.SetBool("IsJumping", false); // sets jumping animation to false while in boost animation.
             animStarted = Time.time;
 
             controller.speedBoost = true;
