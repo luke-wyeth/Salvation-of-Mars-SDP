@@ -191,7 +191,7 @@ public class CharacterController2D : MonoBehaviour
         upsidedown = !upsidedown;
     }
 
-    void onCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "MovingPlatform")
         {
@@ -200,7 +200,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    void onCollisionExit2D(Collision2D coll)
+    void OnCollisionExit2D(Collision2D coll)
     {
         if(coll.gameObject.tag == "MovingPlatform")
         {
@@ -208,21 +208,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Deadly"))
-        {
-           
-            //CharacterController2D player = other.GetComponent<CharacterController2D>();
-            //Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
-           // player.reverseGrav = false;
-            //player.upsidedown = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("Dead!");
 
-        }
-        
-    }
      
 
 }

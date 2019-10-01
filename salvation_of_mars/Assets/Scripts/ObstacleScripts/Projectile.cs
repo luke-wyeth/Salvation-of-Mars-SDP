@@ -5,25 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Deadly"))
+        if (other.gameObject.tag == "Player")
         {
-
-            //CharacterController2D player = other.GetComponent<CharacterController2D>();
-            //Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
-            // player.reverseGrav = false;
-            //player.upsidedown = false;
+            CharacterController2D player = other.gameObject.GetComponent<CharacterController2D>();
+            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+            player.reverseGrav = false;
+            player.upsidedown = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("Dead!");
-
         }
-
     }
 }
