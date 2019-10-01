@@ -12,21 +12,26 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isActive = true;
         StartCoroutine(Shoots());
     }
 
-
     IEnumerator Shoots()
     {
-        while (isActive)
+        while(true) // loop forever
         {
-            yield return new WaitForSeconds(Delay);
+            if(isActive) // if turret is currently active
+            {
+                yield return new WaitForSeconds(Delay);
 
-            GameObject Projectile_Clone = (GameObject)Instantiate(projectile, transform.position, Quaternion.identity);
+                // instantiate a projectile
+                GameObject Projectile_Clone = (GameObject)Instantiate(projectile, transform.position, Quaternion.identity);
 
-            Projectile_Clone.GetComponent<Rigidbody2D>().velocity = -transform.right * speedFactor;           
+                // shoot the projectile
+                Projectile_Clone.GetComponent<Rigidbody2D>().velocity = -transform.right * speedFactor;
+            }
+
+            // wait for 0.2 seconds: this prevents getting in an infinite loop and crashing 
+            yield return new WaitForSeconds(0.2f);
         }
-
     }
 }
