@@ -16,7 +16,7 @@ public class breakable : MonoBehaviour
 
         if(lengthAllowedOn <= 0)
         {
-            lengthAllowedOn = 1f;
+            lengthAllowedOn = 2f;
         }
     }
 
@@ -30,12 +30,14 @@ public class breakable : MonoBehaviour
     {
         if(touched && (Time.time - lengthAllowedOn) > jumpedOn) // if 1 second has passed since player first touched
         {
+            Debug.Log("timeup");
             fallDown();
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision) // when LEAVING the section
     {
+        Debug.Log("exited");
         fallDown();
     }
 
