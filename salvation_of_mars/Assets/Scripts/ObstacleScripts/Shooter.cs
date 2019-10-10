@@ -23,9 +23,8 @@ public class Shooter : MonoBehaviour
             {
                 yield return new WaitForSeconds(Delay);
 
-                Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.5f);
                 // instantiate a projectile
-                GameObject Projectile_Clone = (GameObject)Instantiate(projectile, position, Quaternion.identity);
+                GameObject Projectile_Clone = (GameObject)Instantiate(projectile, transform.position, Quaternion.identity);
 
                 // shoot the projectile
                 Projectile_Clone.GetComponent<Rigidbody2D>().velocity = -transform.right * speedFactor;
