@@ -15,6 +15,11 @@ public class VisibleText : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        loadText();
+    }
+
+    public void loadText()
+    {
         sr.enabled = true; // enable rendering - visible and active
     }
 
