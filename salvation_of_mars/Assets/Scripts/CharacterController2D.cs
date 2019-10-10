@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -190,7 +191,7 @@ public class CharacterController2D : MonoBehaviour
         upsidedown = !upsidedown;
     }
 
-    void onCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "MovingPlatform")
         {
@@ -199,7 +200,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    void onCollisionExit2D(Collision2D coll)
+    void OnCollisionExit2D(Collision2D coll)
     {
         if(coll.gameObject.tag == "MovingPlatform")
         {
@@ -207,5 +208,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+
+     
 
 }
