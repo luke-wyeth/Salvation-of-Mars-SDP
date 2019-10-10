@@ -32,6 +32,14 @@ public class SoundManagerScript : MonoBehaviour
         {
             moveSrc.PlayOneShot(moveSound);
         }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            moveSrc.PlayOneShot(moveSound);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            moveSrc.PlayOneShot(moveSound);
+        }
         if (Input.GetKeyDown(KeyCode.X))
         {
             moveSrc.PlayOneShot(boostSound);

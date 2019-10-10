@@ -10,6 +10,7 @@ public class Spikes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
        if(collider.CompareTag("Player"))
        {
             CharacterController2D player = collider.GetComponent<CharacterController2D>();
@@ -21,5 +22,7 @@ public class Spikes : MonoBehaviour
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
        }
+
+
     }
 }

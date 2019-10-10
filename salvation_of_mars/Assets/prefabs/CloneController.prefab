@@ -43,9 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3f7dcf264928a4f80f561f2aaf50f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  clone: {fileID: 0}
-  cFrozen: 0
-  pFrozen: 0
-  playerArrow: {fileID: 0}
-  cloneArrow: {fileID: 0}
