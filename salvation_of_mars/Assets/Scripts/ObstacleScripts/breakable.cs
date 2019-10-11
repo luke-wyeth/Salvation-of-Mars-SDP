@@ -5,10 +5,6 @@ using UnityEngine;
 public class breakable : MonoBehaviour
 {
     private Rigidbody2D body;
-    private float jumpedOn;
-    private bool touched;
-    public float lengthAllowedOn;
-
     // Start is called before the first frame update
     void Start() 
     {
@@ -37,6 +33,7 @@ public class breakable : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) // when LEAVING the section
     {
+
         Debug.Log("exited");
         fallDown();
     }
