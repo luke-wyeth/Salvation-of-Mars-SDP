@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class RocketScript : MonoBehaviour
@@ -29,6 +30,11 @@ public class RocketScript : MonoBehaviour
                 // move towards end position
                 this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos.transform.position, Time.deltaTime * 10);
             }
+
+            if((Time.time - 4f) > timeEnabled)
+            {
+                toCredits();
+            }
         }
     }
         
@@ -45,5 +51,10 @@ public class RocketScript : MonoBehaviour
         flying = true; // set boolean
         player.SetActive(false); // disable the player
         clone.SetActive(false); // disable the clone
+    }
+
+    private void toCredits()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
