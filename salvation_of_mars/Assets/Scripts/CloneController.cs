@@ -40,7 +40,7 @@ public class CloneController : MonoBehaviour
         clone.SetActive(false);
     }
 
-    // Update is called once per frame
+    // Update is automatically called once per frame
     void Update()
     {
         // if ability3 triggered (clone)
