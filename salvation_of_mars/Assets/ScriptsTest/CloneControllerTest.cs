@@ -45,6 +45,7 @@ namespace Tests
             GameObject cloneController = new GameObject();
             cloneController.AddComponent<CloneController>();
             cc = cloneController.GetComponent<CloneController>();
+
             cc.clone = Clone;
             cc.player = Player;
         }
