@@ -44,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bre_lvl_3.unity
     guid: 319ff4f4f624efd4398f192d7b057033
+  - enabled: 1
+    path: Assets/Scenes/endLevel.unity
+    guid: cfc0246e5c5e65948b11e35e99bf34f3
+  - enabled: 1
+    path: Assets/Scenes/credits.unity
+    guid: 359b68a8d3f872540980e74396b3e703
   m_configObjects: {}
