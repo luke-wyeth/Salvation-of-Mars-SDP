@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CloneController : MonoBehaviour
 {
-    public GameObject player; // player object
-    public GameObject clone; // clone object
+    public GameObject player;
+    public GameObject clone;
     private PlayerMovement playerControl;
     private PlayerMovement cloneControl;
-    private bool cloneVisible; // is the clone visible?
+    private bool cloneVisible;
 
     private Rigidbody2D cBody; // clone body
     private Rigidbody2D pBody; // player body
@@ -16,16 +16,13 @@ public class CloneController : MonoBehaviour
     public bool cFrozen; // clone frozen status
     public bool pFrozen; // player frozen status
 
-    public GameObject playerArrow; // arrow indicator icon over head of player
-    public GameObject cloneArrow; // arrow indicator over clone
-
     // Start is called before the first frame update
     void Start()
     {
         cFrozen = true; // clone starts off frozen, hasn't been activated yet
         pFrozen = false;
 
-        if(player == null || clone == null) // if player and clone objects not assigned, find them
+        if(player == null || clone == null)
         {
             player = GameObject.Find("Player"); // assign player object
             clone = GameObject.Find("Clone"); // assign clone object
@@ -35,19 +32,12 @@ public class CloneController : MonoBehaviour
         
         cloneControl = clone.GetComponent<PlayerMovement>();
 
-        pBody = player.GetComponent<Rigidbody2D>(); // get rigidbody component from player object
+        pBody = player.GetComponent<Rigidbody2D>();
         cBody = clone.GetComponent<Rigidbody2D>();
-
-        // get player and clone arrows automatically - easier than manually having to add in each scene
-        playerArrow = GameObject.Find("pArrow");
-        cloneArrow = GameObject.Find("cArrow");
 
         cloneVisible = false; // set current state of clone
 
-        clone.SetActive(false); // clone not spawned in scene yet
-
-        playerArrow.SetActive(false); // neither arrow should be active since clone is not spawned yet
-        cloneArrow.SetActive(false);
+        clone.SetActive(false);
     }
 
     // Update is automatically called once per frame
@@ -87,11 +77,11 @@ public class CloneController : MonoBehaviour
 
             cFrozen = false;
             pFrozen = true;
+            //pBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
             playerControl.enabled = false; // disable control of the player
             cloneControl.enabled = true; // enable control of the clone
 
-            cloneArrow.SetActive(true);
         }
         // if clone is already created, switch control to opposite (e.g switch from clone to player or vice versa)
         else if (cloneVisible)
@@ -103,10 +93,6 @@ public class CloneController : MonoBehaviour
             // flip which character control is enabled
             playerControl.enabled = !playerControl.enabled;
             cloneControl.enabled = !cloneControl.enabled;
-
-            // flip which arrow is enabled
-            cloneArrow.SetActive(!cloneArrow.activeSelf);
-            playerArrow.SetActive(!playerArrow.activeSelf);
         }
 
     }

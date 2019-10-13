@@ -5,14 +5,11 @@ using UnityEngine;
 public class breakable : MonoBehaviour
 {
     private Rigidbody2D body;
-    private float jumpedOn;
-    private bool touched;
-    public float lengthAllowedOn;
-
     // Start is called before the first frame update
     void Start() 
     {
         body = gameObject.GetComponent<Rigidbody2D>(); // load rigidbody of the platform this is attached to
+
 
         if(lengthAllowedOn <= 0)
         {
@@ -33,16 +30,19 @@ public class breakable : MonoBehaviour
             Debug.Log("timeup");
             fallDown();
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision) // when LEAVING the section
     {
+
         Debug.Log("exited");
         fallDown();
     }
 
     private void fallDown()
     {
+
         body.bodyType = RigidbodyType2D.Dynamic; // make body affected by gravity
     }
 }
