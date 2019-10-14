@@ -22,22 +22,22 @@ public class RocketScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(flying)
+        if (flying)
         {
-            if((Time.time - 0.5) > timeEnabled) // delay before start flying away
+            if ((Time.time - 0.5) > timeEnabled) // delay before start flying away
             {
                 flame.SetActive(true); // enable the flame under the rocket
-                // move towards end position
+                                       // move towards end position
                 this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos.transform.position, Time.deltaTime * 10);
             }
 
-            if((Time.time - 4f) > timeEnabled)
+            if ((Time.time - 4f) > timeEnabled)
             {
                 toCredits();
             }
         }
     }
-        
+
 
     private void OnTriggerEnter2D()
     {
@@ -45,7 +45,7 @@ public class RocketScript : MonoBehaviour
         setFlying();
     }
 
-    private void setFlying()
+    public void setFlying()
     {
         timeEnabled = Time.time;
         flying = true; // set boolean
@@ -55,6 +55,6 @@ public class RocketScript : MonoBehaviour
 
     private void toCredits()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("credits");
     }
 }
