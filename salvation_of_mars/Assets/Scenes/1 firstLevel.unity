@@ -120,6 +120,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &53288790
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +201,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.31099}
+=======
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
 --- !u!1 &359541204
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,8 +365,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: -1645748629
   m_SortingLayer: 1
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7a2c7390b9196cc49ae3b17f4222dead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -457,16 +465,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 5864448105453654681, guid: 02e8e655f4b51854fae7f620e9b6cceb,
         type: 3}
       propertyPath: collectedCard
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
     - target: {fileID: 778201838195877481, guid: 02e8e655f4b51854fae7f620e9b6cceb,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 5864448105453654681, guid: 02e8e655f4b51854fae7f620e9b6cceb,
+        type: 3}
+      propertyPath: collectedCard
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02e8e655f4b51854fae7f620e9b6cceb, type: 3}
 --- !u!1 &736007518
@@ -481,7 +500,11 @@ GameObject:
   - component: {fileID: 736007522}
   - component: {fileID: 736007521}
   - component: {fileID: 736007520}
+<<<<<<< HEAD
   m_Layer: 9
+=======
+  m_Layer: 0
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
   m_Name: CollidableLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,8 +576,13 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: -1645748629
   m_SortingLayer: 1
+=======
+  m_SortingLayerID: -1083613197
+  m_SortingLayer: -1
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2722,11 +2750,19 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: -1645748629
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 790cfe09e89737c47bfacaf1dd67da81, type: 3}
   m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 790cfe09e89737c47bfacaf1dd67da81, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> parent of 8074567... Merge branch 'master' into luke-branch
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
