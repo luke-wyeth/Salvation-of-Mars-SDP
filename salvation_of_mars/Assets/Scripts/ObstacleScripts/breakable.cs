@@ -13,6 +13,7 @@ public class breakable : MonoBehaviour
     void Start() 
     {
         body = gameObject.GetComponent<Rigidbody2D>(); // load rigidbody of the platform this is attached to
+<<<<<<< HEAD
 
         if(lengthAllowedOn <= 0)
         {
@@ -33,16 +34,21 @@ public class breakable : MonoBehaviour
             Debug.Log("timeup");
             fallDown();
         }
+=======
+>>>>>>> parent of e4ce24d... Merge branch 'master' of https://github.com/luke-wyeth/Salvation-of-mars-sprint2
     }
 
     private void OnCollisionExit2D(Collision2D collision) // when LEAVING the section
     {
+<<<<<<< HEAD
         Debug.Log("exited");
         fallDown();
     }
 
     private void fallDown()
     {
+=======
+>>>>>>> parent of e4ce24d... Merge branch 'master' of https://github.com/luke-wyeth/Salvation-of-mars-sprint2
         body.bodyType = RigidbodyType2D.Dynamic; // make body affected by gravity
     }
 }
