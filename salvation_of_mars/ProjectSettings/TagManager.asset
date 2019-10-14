@@ -9,6 +9,7 @@ TagManager:
   - pushable
   - MovingPlatform
   - Grabbable
+  - Deadly
   layers:
   - Default
   - TransparentFX
@@ -43,11 +44,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: background
     uniqueID: 3211354099
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: player
     uniqueID: 2649218667
