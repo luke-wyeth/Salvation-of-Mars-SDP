@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     float nextBoost;
 
     float animStarted;
+
+    private float deathStartTime;
 
     public Animator animator;
 
@@ -106,5 +109,25 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", true);
     }
    
+    public void death()
+    {
+        animator.SetBool("isDead", true);
+        deathStartTime = Time.time;
+
+        while ((Time.time - deathStartTime) < 2f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        //if (Time.time > 2f)
+        //{
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //}
+        
+    }
+
+    public float getDeathStartTime()
+    {
+        return deathStartTime;
+    }
 
 }

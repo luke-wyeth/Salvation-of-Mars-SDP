@@ -19,7 +19,9 @@ public class Spikes : MonoBehaviour
             player.reverseGrav = false;
             player.upsidedown = false;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            player.GetComponent<PlayerMovement>().death();
+
+            Debug.Log("TIMEEEE ELAAPSED: "+(Time.time - player.GetComponent<PlayerMovement>().getDeathStartTime()));
        }
     }
 }
