@@ -4530,7 +4530,7 @@ GameObject:
   - component: {fileID: 878423335}
   - component: {fileID: 878423336}
   m_Layer: 5
-  m_Name: AbilityBar2
+  m_Name: GravityBar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5136,6 +5136,7 @@ GameObject:
   - component: {fileID: 1395169215}
   - component: {fileID: 1395169214}
   - component: {fileID: 1395169213}
+  - component: {fileID: 1395169217}
   m_Layer: 5
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -5224,6 +5225,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1395169217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395169212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isImgOn: 0
+  boostAbilityIcon: {fileID: 1537905423}
+  gravityAbilityIcon: {fileID: 1019740547}
 --- !u!50 &1459151199 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5864448105453654677, guid: 02e8e655f4b51854fae7f620e9b6cceb,
@@ -5790,7 +5806,7 @@ GameObject:
   - component: {fileID: 1560418589}
   - component: {fileID: 1560418590}
   m_Layer: 5
-  m_Name: AbilityBar
+  m_Name: BoostBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5813,7 +5829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: -25}
+  m_AnchoredPosition: {x: 64, y: -24.999989}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1560418590
@@ -5824,6 +5840,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560418588}
   m_CullTransparentMesh: 0
+--- !u!1 &1592436947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3531208062566437490, guid: 4601a00c036fe214cb2611a114066771,
+    type: 3}
+  m_PrefabInstance: {fileID: 311986673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1592436948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592436947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isImgOn: 0
+  boostAbilityIcon: {fileID: 0}
+  gravityAbilityIcon: {fileID: 0}
 --- !u!1 &1611924647
 GameObject:
   m_ObjectHideFlags: 0
