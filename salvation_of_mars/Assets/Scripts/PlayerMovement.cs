@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -106,5 +107,30 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", true);
     }
    
+    /// <summary>
+    /// This is the death method for player
+    /// it involves coroutine
+    /// </summary>
+    public void death()
+    {
+        StartCoroutine(deathAnimationCoroutine());
+    }
 
+    /// <summary>
+    /// This method relies on two functions.
+    /// The first function allows the animation to play
+    /// However we need to essentially Thread.sleep for 1 second
+    /// to allow the animation enough time to play all of its frames.
+    /// Then we can reload the scene (restart the level after player died)
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator deathAnimationCoroutine()
+    {
+        animator.SetBool("isDead", true);
+
+        // Wait 1 second then call the next method
+        yield return new WaitForSecondsRealtime(1); 
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
