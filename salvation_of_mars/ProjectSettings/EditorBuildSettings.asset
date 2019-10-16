@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/levelSelectMenu.unity
     guid: 8ee1b0a089ef0456984301d486c450e8
   - enabled: 1
-    path: Assets/Scenes/GravTutorial.unity
+    path: Assets/Scenes/Tutorials/GravTutorial.unity
     guid: 255ecdec99f564640840d345524c29f7
   - enabled: 1
     path: Assets/Scenes/JianLevel2Boost.unity
