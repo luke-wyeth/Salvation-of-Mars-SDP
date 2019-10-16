@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ToNextScene : MonoBehaviour
 {
+    public GameObject levelCompleteUI;
     private int nextSceneToLoad;
 
     void Start()
@@ -14,11 +15,17 @@ public class ToNextScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Scene scene = SceneManager.GetActiveScene();
         PlayerInfo pi = collision.gameObject.GetComponent<PlayerInfo>();
 
-        if(pi.collectedCard)
+        if (scene.name == "Story1" || scene.name == "Story2")
         {
             SceneManager.LoadScene(nextSceneToLoad);
-        } 
+        }
+        else if (pi.collectedCard)
+        {
+            Time.timeScale = 0f;
+            levelCompleteUI.SetActive(true);
+        }
     }
 }
