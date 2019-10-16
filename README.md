@@ -1,4 +1,4 @@
-# Salvation-of-mars-sprint2
+# Salvation of Mars
 Salvation of Mars is a 2D pixel art puzzle platformer where you are an alien that's been imprisoned on Earth - will you be able 
 to get back to Mars?
 
