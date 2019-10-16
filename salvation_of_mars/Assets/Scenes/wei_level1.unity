@@ -5869,7 +5869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afed4ae339ac34f98b163c8fbc12fcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSound: {fileID: 8300000, guid: 32230c96fe2b3436db82f5372a04b765, type: 3}
+  jumpSound: {fileID: 8300000, guid: 7cbf8d98aedd245f9a4b43220e5ceb28, type: 3}
   moveSound: {fileID: 8300000, guid: 8b936affce5f4468190f9a85040c0158, type: 3}
   boostSound: {fileID: 8300000, guid: 08e9aac5017ce4053915c9e1f3b81591, type: 3}
   cloneSound: {fileID: 8300000, guid: 210c35f57e292432fb92da7443b306be, type: 3}
