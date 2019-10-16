@@ -19,9 +19,8 @@ public class Spikes : MonoBehaviour
             player.reverseGrav = false;
             player.upsidedown = false;
 
+            // Call the death of the player to restart the scene
             player.GetComponent<PlayerMovement>().death();
-
-            Debug.Log("TIMEEEE ELAAPSED: "+(Time.time - player.GetComponent<PlayerMovement>().getDeathStartTime()));
        }
     }
 }

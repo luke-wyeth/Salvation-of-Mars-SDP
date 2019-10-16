@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     float animStarted;
 
-    private float deathStartTime;
-
     public Animator animator;
 
     // used to GET input from player
@@ -109,23 +107,30 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", true);
     }
    
+    /// <summary>
+    /// This is the death method for player
+    /// it involves coroutine
+    /// </summary>
     public void death()
     {
         StartCoroutine(deathAnimationCoroutine());
     }
 
+    /// <summary>
+    /// This method relies on two functions.
+    /// The first function allows the animation to play
+    /// However we need to essentially Thread.sleep for 1 second
+    /// to allow the animation enough time to play all of its frames.
+    /// Then we can reload the scene (restart the level after player died)
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator deathAnimationCoroutine()
     {
         animator.SetBool("isDead", true);
 
-        yield return new WaitForSecondsRealtime(1);
+        // Wait 1 second then call the next method
+        yield return new WaitForSecondsRealtime(1); 
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    public float getDeathStartTime()
-    {
-        return deathStartTime;
-    }
-
 }
