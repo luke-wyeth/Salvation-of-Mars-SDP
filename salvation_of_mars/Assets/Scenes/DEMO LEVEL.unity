@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 86403910}
   - component: {fileID: 86403909}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BoostBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 517340095}
   - component: {fileID: 517340094}
   m_Layer: 5
-  m_Name: Background
+  m_Name: GravityBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5436,9 +5436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isImgOn: 0
-  boostAbilityIcon: {fileID: 1537905423}
-  gravityAbilityIcon: {fileID: 1019740547}
+  boostAbilityObj: {fileID: 1560418588}
+  gravityAbilityObj: {fileID: 878423334}
+  cloneAbilityObj: {fileID: 903871983}
 --- !u!50 &1459151199 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5864448105453654677, guid: 02e8e655f4b51854fae7f620e9b6cceb,
@@ -6057,9 +6057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isImgOn: 0
-  boostAbilityIcon: {fileID: 0}
-  gravityAbilityIcon: {fileID: 0}
+  boostAbilityObj: {fileID: 0}
+  gravityAbilityObj: {fileID: 0}
+  cloneAbilityObj: {fileID: 0}
 --- !u!1 &1611924647
 GameObject:
   m_ObjectHideFlags: 0
@@ -6152,7 +6152,7 @@ GameObject:
   - component: {fileID: 1640509991}
   - component: {fileID: 1640509990}
   m_Layer: 5
-  m_Name: Background
+  m_Name: CloneBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
