@@ -1,26 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-   //Loads the tutorial levels corresponding to the recently unlocked ability
+    private int nextLevel;
 
-   /*public void GoToTutorial()
+    void Start()
+    {
+        nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+    }
+
+    //Loads the tutorial levels corresponding to the recently unlocked ability
+    public void GoToTutorial()
+     {
+         Scene scene = SceneManager.GetActiveScene();
+
+         if (scene.name == "CloneUnlock")
+         {
+             SceneManager.LoadScene("CloneTutorial");
+         }
+         //else if (scene.name == "GravityUnlock")
+        // {
+         //    SceneManager.LoadScene("GravityTutorial");
+        // }
+        // else if (scene.name == "CloneUnlock") ;
+       //  {
+       //      SceneManager.LoadScene("CloneTutorial");
+       //  }
+     }
+
+    public void NextLevel()
     {
         Scene scene = SceneManager.GetActiveScene();
 
-        if (scene.name == "BoostUnlock")
+        if (scene.name == "CloneUnlock")
         {
-            SceneManager.LoadScene("BoostTutorial");
+            SceneManager.LoadScene(nextLevel + 1);
         }
-        else if (scene.name == "GravityUnlock")
+        else
         {
-            SceneManager.LoadScene("GravityTutorial");
+            SceneManager.LoadScene(nextLevel);
         }
-        else if (scene.name == "CloneUnlock") ;
-        {
-            SceneManager.LoadScene("CloneTutorial");
-        }
-    }*/
+    }
 }
