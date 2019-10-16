@@ -8,21 +8,18 @@ public class SkillIconController : MonoBehaviour
     //public bool isBoostImgOn, isGravityImgOn, isCloneImgOn;
     //public bool isImgOn;
     //public Image boostAbilityIcon, gravityAbilityIcon;
+    public Image boostCooldownBar, gravityCooldownBar, cloneCooldownBar;
     public GameObject boostAbilityObj, gravityAbilityObj, cloneAbilityObj;
-    private GameObject boostAbilityChild, gravityAbilityChild, cloneAbilityChild;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(boostAbilityObj.transform.GetChild(0).gameObject);
-        boostAbilityChild = boostAbilityObj.transform.GetChild(0).gameObject;
-        boostAbilityChild.SetActive(false);
-
-        gravityAbilityChild = gravityAbilityObj.transform.GetChild(0).gameObject;
-        gravityAbilityChild.SetActive(false);
-
-        cloneAbilityChild = cloneAbilityObj.transform.GetChild(0).gameObject;
-        cloneAbilityChild.SetActive(false);
+        boostCooldownBar.fillAmount = 1;
+        gravityCooldownBar.fillAmount = 1;
+        cloneCooldownBar.fillAmount = 1;
+        boostAbilityObj.SetActive(false);
+        gravityAbilityObj.SetActive(false);
+        cloneAbilityObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,15 +27,41 @@ public class SkillIconController : MonoBehaviour
     {
         if (SkillSelect.boostSelected)
         {
-            boostAbilityChild.SetActive(true);
+            boostAbilityObj.SetActive(true);
+            gravityAbilityObj.SetActive(false);
+            cloneAbilityObj.SetActive(false);
+            StartCoroutine(cooldownProgress(boostCooldownBar));
         }
         else if (SkillSelect.gravitySelected)
         {
-            gravityAbilityChild.SetActive(true);
+            gravityAbilityObj.SetActive(true);
+            boostAbilityObj.SetActive(false);
+            cloneAbilityObj.SetActive(false);
+            StartCoroutine(cooldownProgress(gravityCooldownBar));
         }
         else if (SkillSelect.cloneSelected)
         {
-            cloneAbilityChild.SetActive(true);
+            cloneAbilityObj.SetActive(true);
+            boostAbilityObj.SetActive(false);
+            gravityAbilityObj.SetActive(false);
+            //Cool down bar flashing in between 2 colours while in use
+        }
+    }
+
+    private IEnumerator cooldownProgress(Image cooldownBar)
+    {
+        //cooldownBar.fillAmount += 0.01f;
+        //yield return null;
+        float timeLeft = Time.deltaTime;
+        float rate = 1.0f / 0.8f;
+
+        float progress = 0f;
+
+        while (progress <= 1f)
+        {
+            cooldownBar.fillAmount = Mathf.Lerp(0, 1, progress);
+            progress += rate * Time.deltaTime;
+            yield return null;
         }
     }
 }
