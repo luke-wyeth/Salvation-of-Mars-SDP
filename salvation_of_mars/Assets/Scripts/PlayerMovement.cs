@@ -111,18 +111,16 @@ public class PlayerMovement : MonoBehaviour
    
     public void death()
     {
-        animator.SetBool("isDead", true);
-        deathStartTime = Time.time;
+        StartCoroutine(deathAnimationCoroutine());
+    }
 
-        while ((Time.time - deathStartTime) < 2f)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        //if (Time.time > 2f)
-        //{
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //}
-        
+    private IEnumerator deathAnimationCoroutine()
+    {
+        animator.SetBool("isDead", true);
+
+        yield return new WaitForSecondsRealtime(1);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public float getDeathStartTime()
