@@ -5105,6 +5105,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.91939545
       objectReference: {fileID: 0}
+    - target: {fileID: 8079063246125914357, guid: 17164aa9f2dccac41ad3c8d3b2625e3a,
+        type: 3}
+      propertyPath: levelCompleteUI
+      value: 
+      objectReference: {fileID: 571279347}
     - target: {fileID: 2981442375250693977, guid: 17164aa9f2dccac41ad3c8d3b2625e3a,
         type: 3}
       propertyPath: m_Name
