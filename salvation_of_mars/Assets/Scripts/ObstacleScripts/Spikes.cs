@@ -19,7 +19,8 @@ public class Spikes : MonoBehaviour
             player.reverseGrav = false;
             player.upsidedown = false;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Call the death of the player to restart the scene
+            player.GetComponent<PlayerMovement>().death();
        }
     }
 }

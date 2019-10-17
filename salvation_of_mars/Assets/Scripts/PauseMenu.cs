@@ -12,9 +12,14 @@ public class PauseMenu : MonoBehaviour
     //Escape key will activate the PauseGame function.
     void Update()
     {
+        Scene scene = SceneManager.GetActiveScene();
         if (!gameIsPaused)
         {
             if (Input.GetKeyDown(KeyCode.Escape) && SkillSelect.skillSelected)
+            {
+                PauseGame();
+            }
+            else if ((scene.name == "credits") && Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseGame();
             }
@@ -51,6 +56,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
+        gameIsPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
