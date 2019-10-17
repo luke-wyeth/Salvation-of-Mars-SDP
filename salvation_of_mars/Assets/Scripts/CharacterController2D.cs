@@ -205,6 +205,7 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
+
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -215,7 +216,16 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    // Abilty Pickup
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag  ("pickup"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
-     
+
+
 
 }

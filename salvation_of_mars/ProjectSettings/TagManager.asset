@@ -11,6 +11,7 @@ TagManager:
   - Grabbable
   - Deadly
   - JumpPad
+  - pickup
   layers:
   - Default
   - TransparentFX
