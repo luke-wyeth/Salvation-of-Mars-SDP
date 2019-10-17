@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyCard : MonoBehaviour
+public class AbilityPickup : MonoBehaviour
 {
-    private SpringJoint2D cardSpring;
+    private SpringJoint2D abilitySpring;
 
     // Start is called before the first frame update
     //object does not connect becuase it is false at the start
     //Recieve a gameobject with a tag "Backpack"
     void Start()
     {
-        cardSpring = GetComponent<SpringJoint2D>();
-        cardSpring.enabled = false;
-        GameObject BackPack = GameObject.FindWithTag("Backpack");
-        cardSpring.connectedBody = BackPack.GetComponent<Rigidbody2D>();
+        abilitySpring = GetComponent<SpringJoint2D>();
+        abilitySpring.enabled = false;
+        GameObject BackPack2 = GameObject.FindWithTag("Backpack2");
+        abilitySpring.connectedBody = BackPack2.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,10 +23,11 @@ public class KeyCard : MonoBehaviour
     {
         PlayerInfo pi = collision.gameObject.GetComponent<PlayerInfo>();
 
-        if (collision.gameObject.tag == "Player" && !cardSpring.enabled)
-        { 
-            cardSpring.enabled = true;
-            pi.collectedCard = true;
+        if (collision.gameObject.tag == "Player" && !abilitySpring.enabled)
+        {
+            abilitySpring.enabled = true;
+            pi.abilityUnlock = true;
         }
     }
 }
+
