@@ -151,6 +151,7 @@ Transform:
   - {fileID: 5864448107042484043}
   - {fileID: 121980392}
   - {fileID: 1427186822626920976}
+  - {fileID: 8593763092590983062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   collectedCard: 0
+  abilityUnlock: 0
 --- !u!70 &5864448105453654686
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -434,7 +436,7 @@ GameObject:
   - component: {fileID: 5864448107042484043}
   - component: {fileID: 5864448107042484042}
   m_Layer: 0
-  m_Name: Backpack
+  m_Name: KeyCardBackpack
   m_TagString: Backpack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5864448107042484037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.44, y: -0.13, z: 0}
+  m_LocalPosition: {x: -0.526, y: -0.044, z: 0}
   m_LocalScale: {x: 0.3151705, y: 0.3151705, z: 0.3151705}
   m_Children: []
   m_Father: {fileID: 5864448105453654679}
@@ -462,6 +464,58 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5864448107042484037}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &5893378847086601607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8593763092590983062}
+  - component: {fileID: 6596256932144546704}
+  m_Layer: 0
+  m_Name: abilityBackpack
+  m_TagString: Backpack2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8593763092590983062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893378847086601607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.526, y: -0.13, z: 0}
+  m_LocalScale: {x: 0.3151705, y: 0.3151705, z: 0.3151705}
+  m_Children: []
+  m_Father: {fileID: 5864448105453654679}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &6596256932144546704
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893378847086601607}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
