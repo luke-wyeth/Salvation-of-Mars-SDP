@@ -205,6 +205,12 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
+        if (coll.gameObject.tag == "pickup")
+        {
+            Destroy(coll.gameObject);
+        }
+
+
     }
 
     void OnCollisionExit2D(Collision2D coll)
