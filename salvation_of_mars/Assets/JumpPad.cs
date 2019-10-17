@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetAnim : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
-    public GameObject player;
-
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        resetAnimations();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void resetAnimations()
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        player.SetActive(false);
-        player.SetActive(true);
+        if (coll.gameObject.tag == "JumpPad")
+        {
+            animator.SetBool("IsJumping", true);
+
+        }
+
     }
 }
