@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class KeyCard : MonoBehaviour
 {
-    private SpringJoint2D spring;
+    private SpringJoint2D cardSpring;
+    private SpringJoint2D abilitySpring;
+
     // Start is called before the first frame update
     //object does not connect becuase it is false at the start
-    //Reciece a gameobject with a tag "Backpack"
+    //Recieve a gameobject with a tag "Backpack"
     void Start()
     {
-        spring = GetComponent<SpringJoint2D>();
-        spring.enabled = false;
-        GameObject backpack = GameObject.FindWithTag("Backpack");
-        spring.connectedBody = backpack.GetComponent<Rigidbody2D>();
+        cardSpring = GetComponent<SpringJoint2D>();
+        cardSpring.enabled = false;
+        GameObject BackPack = GameObject.FindWithTag("Backpack");
+        cardSpring.connectedBody = BackPack.GetComponent<Rigidbody2D>();
+
+        abilitySpring = GetComponent<SpringJoint2D>();
+        abilitySpring.enabled = false;
+        GameObject BackPack2 = GameObject.FindWithTag("Backpack2");
+        abilitySpring.connectedBody = BackPack2.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     //Object should connect when a gameobject with a tag "Player" collides with it
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !spring.enabled)
-        { 
-            spring.enabled = true;
-            PlayerInfo pi = collision.gameObject.GetComponent<PlayerInfo>();
+        PlayerInfo pi = collision.gameObject.GetComponent<PlayerInfo>();
+
+        if (collision.gameObject.tag == "Player" && !cardSpring.enabled)
+        {
+            cardSpring.enabled = true;
             pi.collectedCard = true;
+        }
+
+        if (collision.gameObject.tag == "Player" && !abilitySpring.enabled)
+        {
+            abilitySpring.enabled = true;
+            pi.abilityUnlock = true;
         }
     }
 }
