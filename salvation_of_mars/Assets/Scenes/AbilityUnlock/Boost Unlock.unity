@@ -4986,12 +4986,12 @@ PrefabInstance:
     - target: {fileID: 5864448105453654679, guid: 02e8e655f4b51854fae7f620e9b6cceb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.05
+      value: -15.01
       objectReference: {fileID: 0}
     - target: {fileID: 5864448105453654679, guid: 02e8e655f4b51854fae7f620e9b6cceb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.17
+      value: 5.15
       objectReference: {fileID: 0}
     - target: {fileID: 5864448105453654679, guid: 02e8e655f4b51854fae7f620e9b6cceb,
         type: 3}
@@ -6596,6 +6596,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boost Abilty Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031509365150577460, guid: 516ec40dd3990e94ba9b84c46d6eba24,
+        type: 3}
+      propertyPath: m_TagString
+      value: pickup
       objectReference: {fileID: 0}
     - target: {fileID: 3031509365150577486, guid: 516ec40dd3990e94ba9b84c46d6eba24,
         type: 3}

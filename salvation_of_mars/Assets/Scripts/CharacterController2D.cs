@@ -205,11 +205,6 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        if (coll.gameObject.tag == "pickup")
-        {
-            Destroy(coll.gameObject);
-        }
-
 
     }
 
@@ -221,7 +216,16 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    // Abilty Pickup
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag  ("pickup"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
-     
+
+
 
 }
