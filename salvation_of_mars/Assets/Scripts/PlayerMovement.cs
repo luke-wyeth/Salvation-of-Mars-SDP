@@ -62,9 +62,12 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
 
-        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+        if(animator != null)
         {
-            animator.SetBool("InBoost", false);
+            if ((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+            {
+                animator.SetBool("InBoost", false);
+            }
         }
     }
 
@@ -132,8 +135,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isDead", true);
 
         // Wait 1 second then call the next method
-        yield return new WaitForSecondsRealtime(1); 
+        yield return new WaitForSecondsRealtime(1);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // set gravity to normal in case gravity is currently reversed
+        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+        controller.reverseGrav = false; 
+        controller.upsidedown = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);// reload the level
     }
 }

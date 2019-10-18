@@ -25,22 +25,25 @@ public class CloneController : MonoBehaviour
         cFrozen = true; // clone starts off frozen, hasn't been activated yet
         pFrozen = false;
 
-        if(player == null || clone == null) // if player and clone objects not assigned, find them
+        if (player == null || clone == null) // if player and clone objects not assigned, find them
         {
             player = GameObject.Find("Player"); // assign player object
             clone = GameObject.Find("Clone"); // assign clone object
         }
-        
+
         playerControl = player.GetComponent<PlayerMovement>(); // get the playerMovement script to enable and disable as necessary
-        
+
         cloneControl = clone.GetComponent<PlayerMovement>();
 
         pBody = player.GetComponent<Rigidbody2D>(); // get rigidbody component from player object
         cBody = clone.GetComponent<Rigidbody2D>();
 
         // get player and clone arrows automatically - easier than manually having to add in each scene
-        playerArrow = GameObject.Find("pArrow");
-        cloneArrow = GameObject.Find("cArrow");
+        if (playerArrow == null || cloneArrow == null)
+        {
+            playerArrow = GameObject.Find("pArrow");
+            cloneArrow = GameObject.Find("cArrow");
+        }
 
         cloneVisible = false; // set current state of clone
 

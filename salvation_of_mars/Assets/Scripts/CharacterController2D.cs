@@ -7,7 +7,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private float JumpForce = 300f;                          // how much force should player jump with
     [Range(0, 1)] [SerializeField] private float CrouchSpeed = .36f;          // change speed of player movement while crouching
     [Range(0, .3f)] [SerializeField] private float MovementSmoothing = .05f;  // movement smoothing amount                 
-    [SerializeField] private LayerMask WhatIsGround;                          // what counts as the ground? prevent player walking on every layer
+    [SerializeField] public LayerMask WhatIsGround;                          // what counts as the ground? prevent player walking on every layer
     [SerializeField] public Transform GroundCheck;                           // object to check for floor
     [SerializeField] public Transform CeilingCheck;                          // object to check for ceiling
    // [SerializeField] private Collider2D CrouchDisableCollider;                // which collider to disable when player crouches (can go under objects etc)
