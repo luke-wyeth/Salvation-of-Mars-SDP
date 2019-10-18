@@ -62,9 +62,12 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
 
-        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+        if(animator != null)
         {
-            animator.SetBool("InBoost", false);
+            if ((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+            {
+                animator.SetBool("InBoost", false);
+            }
         }
     }
 

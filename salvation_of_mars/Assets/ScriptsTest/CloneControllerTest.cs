@@ -12,6 +12,9 @@ namespace Tests
         private GameObject Clone;
         private CloneController cc;
 
+        private GameObject pArrow;
+        private GameObject cArrow;
+
         [SetUp]
         public void Init()
         {
@@ -28,6 +31,9 @@ namespace Tests
             Player.GetComponent<CharacterController2D>().CeilingCheck = ceilingCheckP.transform;
             Player.GetComponent<PlayerMovement>().controller = Player.GetComponent<CharacterController2D>();
 
+            pArrow = new GameObject("pArrow");
+            pArrow.transform.parent = Player.transform;
+
             // setup clone object
             Clone = new GameObject();
             Clone.AddComponent<PlayerMovement>();
@@ -40,6 +46,9 @@ namespace Tests
             Clone.GetComponent<CharacterController2D>().GroundCheck = floorCheckC.transform;
             Clone.GetComponent<CharacterController2D>().CeilingCheck = ceilingCheckC.transform;
             Clone.GetComponent<PlayerMovement>().controller = Clone.GetComponent<CharacterController2D>();
+
+            cArrow = new GameObject("cArrow");
+            cArrow.transform.parent = Clone.transform;
 
             // setup clone controller
             GameObject cloneController = new GameObject();
@@ -119,6 +128,13 @@ namespace Tests
 
             Assert.IsTrue(cc.pFrozen); // player is frozen
             Assert.IsFalse(cc.cFrozen); // clone is not frozen
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator NoIndicatorsVisibleOnLoad()
+        {
 
             yield return null;
         }
