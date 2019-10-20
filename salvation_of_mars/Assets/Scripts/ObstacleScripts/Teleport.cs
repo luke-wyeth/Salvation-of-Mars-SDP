@@ -5,13 +5,14 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     public GameObject connectedObject;
-    private GameObject player;
-    public bool teleported = false;
+    public GameObject player;
+    public bool teleported;
 
     // Start is called before the first frame update
     //find if player is next to an object
     void Start()
     {
+        teleported = false;
         player = GameObject.FindWithTag("Player");
     }
 
@@ -34,7 +35,14 @@ public class Teleport : MonoBehaviour
             {
                 player.transform.position = connectedObject.transform.position;
                 connectedObject.GetComponent<Teleport>().teleported = true;
+                teleport();
             }
         }
+    }
+
+    public void teleport()
+    {
+        player.transform.position = connectedObject.transform.position;
+        teleported = true;
     }
 }
