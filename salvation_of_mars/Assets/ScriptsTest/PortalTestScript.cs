@@ -66,12 +66,12 @@ namespace Tests
         {
             Player.transform.position = Vector3.zero;       //Position player and portal to 0                  
             Portal.transform.position = Vector3.zero;
-            teleported = Portal.GetComponent<Teleport>().teleported = true;
-            Portal.GetComponent<Teleport>().teleport();
-            Player.transform.position = Portal2.transform.position;
+            teleported = Player.GetComponent<Teleport>().teleported;
+
+            Player.GetComponent<Teleport>().teleport();
 
             Assert.AreEqual(Player.transform.position, Portal2.transform.position);     //Player position and portal2 position should be the same
-            Assert.IsTrue(teleported);
+            Assert.IsTrue(teleported);                                                  //Verify if player teleported
             yield return null;
         }
 
@@ -79,13 +79,14 @@ namespace Tests
         [UnityTest]
         public IEnumerator PlayerTeleportsToPortal()
         {
-            Player.transform.position = Portal2.transform.position;     //Position of player and portal 2 are the same.
-            teleported = Portal.GetComponent<Teleport>().teleported = true;
-            Portal.GetComponent<Teleport>().teleport();
-            Player.transform.position = Portal.transform.position;      
-            
-            Assert.AreEqual(Portal.transform.position, Player.transform.position);      //Player and portal position should be the same
-            Assert.IsTrue(teleported);
+            Player.transform.position = Vector3.zero;       //Position of player and portal 2 are the same.
+            Portal2.transform.position = Vector3.zero;
+            teleported = Player.GetComponent<Teleport>().teleported;
+
+            Player.GetComponent<Teleport>().teleport();
+
+            Assert.AreEqual(Portal.transform.position, Player.transform.position);      //Player position and portal position should be the same
+            Assert.IsTrue(teleported);                                                  //Verify if player teleported  
             yield return null;
         }
     }

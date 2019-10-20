@@ -42,6 +42,7 @@ public class Teleport : MonoBehaviour
 
     public void teleport()
     {
+        player.transform.position = connectedObject.transform.position;
         teleported = true;
     }
 }
