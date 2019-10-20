@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     bool jumping;
     bool active = true;
 
+
     // these variables used for cooldown timer to prevent spamming abilities
     float lastReversed;
     float lastBoost;
@@ -132,15 +133,37 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator deathAnimationCoroutine()
     {
+        CharacterController2D player = gameObject.GetComponent<CharacterController2D>();
+        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+        
+        player.enabled = false; //should stop animation but doesnot...
+        // need to disable the character controller script which moves the character...
+        player.reverseGrav = false;
+        player.upsidedown = true;
+
+        animator.SetBool("inGravity", false);    
         animator.SetBool("isDead", true);
 
         // Wait 1 second then call the next method
         yield return new WaitForSecondsRealtime(1);
 
         // set gravity to normal in case gravity is currently reversed
-        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
-        controller.reverseGrav = false; 
-        controller.upsidedown = false;
+        //Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+        
+        //StartCoroutine(StopPlayer(.1f));
+        
+        //controller.reverseGrav = false; 
+        //controller.upsidedown = false;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);// reload the level
+        animator.SetBool("isDead", false);
     }
+
+ /*   private IEnumerator StopPlayer(float time)
+    {
+        controller.enabled = false;
+        yield return new WaitForSeconds(time);
+    }
+*/
+
 }
