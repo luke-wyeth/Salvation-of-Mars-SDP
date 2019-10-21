@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/JianLevel2Boost.unity
     guid: 0d23927ff7982234fbd2bd8dfd460968
   - enabled: 1
-    path: Assets/Scenes/Tutorials/Bre_Lvl_1.unity
+    path: Assets/Scenes/Tutorials/Movement Tutorial.unity
     guid: db43baa0d013f58489e17db39f82ee38
   - enabled: 0
     path: 
