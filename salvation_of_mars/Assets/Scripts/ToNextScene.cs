@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -21,6 +21,14 @@ public class ToNextScene : MonoBehaviour
         if (scene.name == "Story1" || scene.name == "Story2")
         {
             SceneManager.LoadScene(nextSceneToLoad);
+        }
+        else if(scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "CloneUnlock")
+        {
+            if(pi.collectedCard && pi.abilityUnlock)
+            {
+                Time.timeScale = 0f;
+                levelCompleteUI.SetActive(true);
+            }
         }
         else if (pi.collectedCard)
         {
