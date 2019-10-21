@@ -14,7 +14,7 @@ public class ClearMenu : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
- 
+        
     }
 
     //Update is called once per frame
@@ -30,17 +30,21 @@ public class ClearMenu : MonoBehaviour
 
     public void setStars()
     {
-        if (starOne <= ToNextScene.score)
+        stars[0].SetActive(false);
+        stars[1].SetActive(false);
+        stars[2].SetActive(false);
+
+        if (starOne >= ToNextScene.score)
+        {
+            stars[0].SetActive(true);
+        }
+        if (starTwo >= ToNextScene.score)
         {
             stars[1].SetActive(true);
         }
-        if (starOne <= ToNextScene.score)
+        if (starThree >= ToNextScene.score)
         {
             stars[2].SetActive(true);
-        }
-        if (starThree <= ToNextScene.score)
-        {
-            stars[3].SetActive(true);
         }
     }
 
