@@ -22,20 +22,6 @@ public class ToNextScene : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneToLoad);
         }
-
-        //AbilityUnlock levels should be only be completable when collectedCard and abilityUnlock are true
-        else if (scene.name == "CloneUnlock")
-        {
-            if (pi.collectedCard && pi.abilityUnlock)
-            {
-                Time.timeScale = 0f;
-                levelCompleteUI.SetActive(true);
-            }
-            else
-            {
-                //do nothing when  user does not have keycard and ability
-            }
-        }
         else if (pi.collectedCard)
         {
             Time.timeScale = 0f;

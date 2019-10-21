@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-            else if(scene.name == "credits" && Input.GetKeyDown(KeyCode.Escape))
+            else if ((scene.name == "credits") && Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseGame();
             }
