@@ -4290,11 +4290,6 @@ PrefabInstance:
       propertyPath: starThree
       value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 3662031970540481579, guid: 7eb713fa992027142aff6cbbeac4b003,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb713fa992027142aff6cbbeac4b003, type: 3}
 --- !u!1001 &1529938633
