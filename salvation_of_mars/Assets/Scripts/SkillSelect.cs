@@ -10,6 +10,9 @@ public class SkillSelect : MonoBehaviour
     public static bool boostSelected = false;
     public static bool cloneSelected = false;
     public static bool skillSelected = false; //For pause menu script to refer to
+    public bool hasBoost;
+    public bool hasGrav;
+    public bool hasClone;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,8 @@ public class SkillSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PauseMenu.skillSelectOff == false)
+        keyboardInput();
+        if (PauseMenu.skillSelectOff == false)
         {
             skillSelectUI.SetActive(true);
         }
@@ -33,6 +37,22 @@ public class SkillSelect : MonoBehaviour
         {
             skillSelectUI.SetActive(false);
             Time.timeScale = 1f;
+        }
+    }
+
+    public void keyboardInput()
+    {
+        if(Input.GetButtonDown("Fire1")&&hasGrav)
+        {
+            ReverseGravity();
+        }
+        if (Input.GetButtonDown("Fire2")&&hasBoost)
+        {
+            Boost();
+        }
+        if (Input.GetButtonDown("Fire3")&&hasClone)
+        {
+            Clone();
         }
     }
 
