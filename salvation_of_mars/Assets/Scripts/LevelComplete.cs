@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class LevelComplete : MonoBehaviour
 {
     private int nextLevel;
+    private int level;
 
     void Start()
     {
         Time.timeScale = 0f;
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+    }
+
+    public void saveLevel()
+    {
+        level = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("Level", level + 2);
     }
 
     //Loads the tutorial levels corresponding to the recently unlocked ability
@@ -44,5 +51,18 @@ public class LevelComplete : MonoBehaviour
         {
             SceneManager.LoadScene(nextLevel);
         }
+    }
+
+    public void MainMenu()
+    {
+        saveLevel();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        saveLevel();
+        Application.Quit();
     }
 }
