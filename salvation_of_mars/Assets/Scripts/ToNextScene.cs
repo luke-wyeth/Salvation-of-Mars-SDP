@@ -33,7 +33,7 @@ public class ToNextScene : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneToLoad);
         }
-        else if(scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "CloneUnlock")
+        else if(scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "BoostUnlock")
         {
             if(pi.collectedCard && pi.abilityUnlock)
             {
@@ -43,14 +43,7 @@ public class ToNextScene : MonoBehaviour
         }
         else if (pi.collectedCard)
         {
-            if (scene.name == "Boost Unlock" || scene.name == "Clone_Unlock" || scene.name == "Gravity Unlock")
-            {
-                levelCompleteUI.SetActive(true);
-            }
-            else
-            {
-                levelFinished = true;
-            }
+            levelFinished = true;
         }
     }
 }
