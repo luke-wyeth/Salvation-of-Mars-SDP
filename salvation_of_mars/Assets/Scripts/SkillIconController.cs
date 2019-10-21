@@ -8,6 +8,7 @@ public class SkillIconController : MonoBehaviour
     //public bool isBoostImgOn, isGravityImgOn, isCloneImgOn;
     //public bool isImgOn;
     //public Image boostAbilityIcon, gravityAbilityIcon;
+    public CloneController cloneController;
     public Image boostCooldownBar, gravityCooldownBar, cloneCooldownBar;
     public GameObject boostAbilityObj, gravityAbilityObj, cloneAbilityObj;
 
@@ -44,6 +45,8 @@ public class SkillIconController : MonoBehaviour
             cloneAbilityObj.SetActive(true);
             boostAbilityObj.SetActive(false);
             gravityAbilityObj.SetActive(false);
+
+            StartCoroutine(cloneCooldown());
             //Cool down bar flashing in between 2 colours while in use
         }
     }
@@ -63,5 +66,23 @@ public class SkillIconController : MonoBehaviour
             progress += rate * Time.deltaTime;
             yield return null;
         }
+    }
+
+    private IEnumerator cloneCooldown()
+    {
+        //if (cloneController.clone.activeSelf)
+        //{
+        //    cloneCooldownBar.color = Color.red;
+        //    yield return new WaitForSecondsRealtime(.5f);
+        //    cloneCooldownBar.color = Color.blue;
+        //}
+
+        while (cloneController.getCloneControl().enabled)
+        {
+            cloneCooldownBar.color = new Color(253, 149, 0);
+            yield return new WaitForSeconds(0.5f);
+            cloneCooldownBar.color = Color.clear;
+        }
+
     }
 }

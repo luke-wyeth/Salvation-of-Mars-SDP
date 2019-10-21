@@ -2101,7 +2101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3, y: -35}
+  m_AnchoredPosition: {x: 89, y: -14}
   m_SizeDelta: {x: 254.08, y: 254.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522790037
@@ -2124,7 +2124,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9ded4952dc0f7c44f9142c8bbdf1df46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14d2d4f8d5e40d94a91d208935e1f66a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4512,8 +4512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.5, y: -15}
-  m_SizeDelta: {x: 221.37, y: 221.37}
+  m_AnchoredPosition: {x: 100, y: 16}
+  m_SizeDelta: {x: 286.8, y: 286.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765335170
 MonoBehaviour:
@@ -4535,7 +4535,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5a6446a9528760146941cee4fe3c7ecd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd3645fd985c4f74c9fdd2aedeb22512, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4988,7 +4988,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -5237,6 +5237,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1243088821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8165904529701249878, guid: 434ef354257862545b1a887a9e7f533c,
+    type: 3}
+  m_PrefabInstance: {fileID: 975151984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3f7dcf264928a4f80f561f2aaf50f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251156434
 GameObject:
   m_ObjectHideFlags: 0
@@ -5510,6 +5522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloneController: {fileID: 1243088821}
   boostCooldownBar: {fileID: 1537905423}
   gravityCooldownBar: {fileID: 1019740547}
   cloneCooldownBar: {fileID: 1952655245}
@@ -5651,7 +5664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.58330053, b: 0, a: 1}
+  m_Color: {r: 0.99215686, g: 0.58431375, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5663,7 +5676,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6134,6 +6147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375218f8cda8ea2478ebc03e8f9c9e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloneController: {fileID: 0}
   boostCooldownBar: {fileID: 0}
   gravityCooldownBar: {fileID: 0}
   cloneCooldownBar: {fileID: 0}
@@ -6513,7 +6527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.58330053, b: 0, a: 1}
+  m_Color: {r: 0.98738354, g: 0.99215686, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6524,7 +6538,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
