@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class ToNextScene : MonoBehaviour
 {
-    public bool skipToNext;
-    [HideInInspector]
+    //public bool skipToNext;
+    //[HideInInspector]
     public static int nextSceneToLoad;
     public static float score;
     public static bool levelFinished;
     public GameObject levelCompleteUI;
+    public GameObject tutorialCompleteUI;
 
     void Start()
     {
@@ -39,6 +40,14 @@ public class ToNextScene : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 levelCompleteUI.SetActive(true);
+            }
+        }
+        else if(scene.name == "BoostTutorial" || scene.name == "Bre_Lvl_1" || scene.name == "GravityTutorial" || scene.name == "GravTutorial" || scene.name == "ThrowTutorial")
+        {
+            if (pi.collectedCard)
+            {
+                Time.timeScale = 0f;
+                tutorialCompleteUI.SetActive(true);
             }
         }
         else if (pi.collectedCard)

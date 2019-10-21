@@ -16,8 +16,17 @@ public class LevelComplete : MonoBehaviour
 
     public void saveLevel()
     {
+        Scene scene = SceneManager.GetActiveScene();
+
         level = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt("Level", level + 2);
+        if (scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "BoostUnlock")
+        {
+            PlayerPrefs.SetInt("Level", level + 2);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Level", level + 1);
+        }
     }
 
     //Loads the tutorial levels corresponding to the recently unlocked ability
