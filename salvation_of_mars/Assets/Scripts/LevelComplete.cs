@@ -9,6 +9,7 @@ public class LevelComplete : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0f;
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 

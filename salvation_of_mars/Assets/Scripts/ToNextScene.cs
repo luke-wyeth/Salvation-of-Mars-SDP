@@ -5,12 +5,23 @@ using UnityEngine;
 
 public class ToNextScene : MonoBehaviour
 {
+    public bool skipToNext;
+    [HideInInspector]
+    public static int nextSceneToLoad;
+    public static float score;
+    public static bool levelFinished;
     public GameObject levelCompleteUI;
-    private int nextSceneToLoad;
 
     void Start()
     {
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        levelFinished = false;
+        score = 0.0f;
+    }
+
+    void Update()
+    {
+        score += Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +33,7 @@ public class ToNextScene : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneToLoad);
         }
-        else if(scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "CloneUnlock")
+        else if(scene.name == "CloneUnlock" || scene.name == "GravityUnlock" || scene.name == "BoostUnlock")
         {
             if(pi.collectedCard && pi.abilityUnlock)
             {
@@ -32,8 +43,7 @@ public class ToNextScene : MonoBehaviour
         }
         else if (pi.collectedCard)
         {
-            Time.timeScale = 0f;
-            levelCompleteUI.SetActive(true);
+            levelFinished = true;
         }
     }
 }

@@ -4775,6 +4775,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539849225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3531208062566437490, guid: 4601a00c036fe214cb2611a114066771,
+    type: 3}
+  m_PrefabInstance: {fileID: 1853832418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1663411021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8736154164177602752, guid: 6b4d79d2c3af16b4cb0d1a2d4ecf20ad,
@@ -5097,6 +5103,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3531208062251859942, guid: 4601a00c036fe214cb2611a114066771,
+        type: 3}
+      propertyPath: skillSelectUI
+      value: 
+      objectReference: {fileID: 1539849225}
     - target: {fileID: 3531208063333532918, guid: 4601a00c036fe214cb2611a114066771,
         type: 3}
       propertyPath: m_textInfo.characterCount
