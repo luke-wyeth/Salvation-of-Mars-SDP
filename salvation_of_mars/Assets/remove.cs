@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class remove : MonoBehaviour
 {
-    public int level;
-    public bool collectedCard;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +14,13 @@ public class PlayerInfo : MonoBehaviour
     void Update()
     {
         
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "pickup")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

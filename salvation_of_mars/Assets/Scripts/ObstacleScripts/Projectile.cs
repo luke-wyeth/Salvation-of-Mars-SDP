@@ -21,8 +21,12 @@ public class Projectile : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>();
-            player.death();
+            CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
+            Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+            player.reverseGrav = false;
+            player.upsidedown = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
     }
 }
