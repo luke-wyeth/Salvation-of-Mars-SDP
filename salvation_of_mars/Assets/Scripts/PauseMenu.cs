@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public static bool skillSelectOn = false;
+    public static bool skillSelectOff = false;
 
     // Update is called once per frame
     //Escape key will activate the PauseGame function.
@@ -15,7 +17,7 @@ public class PauseMenu : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if (!gameIsPaused)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && SkillSelect.skillSelected)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseGame();
             }
@@ -29,14 +31,27 @@ public class PauseMenu : MonoBehaviour
     //Remove the pause menu UI and let the game be playable
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
+        if (!SkillSelect.skillSelected)
+        {
+            skillSelectOff = false;
+            pauseMenuUI.SetActive(false);
+            gameIsPaused = false;
+        }
+        else
+        {
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            gameIsPaused = false;
+        }
     }
 
     //Activate the pause menu UI and let the game be unplayable
     void PauseGame()
     {
+        if (!SkillSelect.skillSelected)
+        {
+            skillSelectOff = true;
+        }
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -50,6 +65,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameIsPaused = false;
+        skillSelectOff = false;
     }
 
     //Function to go to the main menu

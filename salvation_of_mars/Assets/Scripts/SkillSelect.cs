@@ -20,7 +20,19 @@ public class SkillSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(PauseMenu.skillSelectOff == false)
+        {
+            skillSelectUI.SetActive(true);
+        }
+        if (PauseMenu.skillSelectOff == true)
+        {
+            skillSelectUI.SetActive(false);
+        }
+        if(skillSelected)
+        {
+            skillSelectUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
     public void ReverseGravity()
@@ -28,8 +40,7 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = true;
         boostSelected = false;
         cloneSelected = false;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
+
         skillSelected = true;
     }
 
@@ -38,8 +49,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = false;
         boostSelected = true;
         cloneSelected = false;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
         skillSelected = true;
     }
 
@@ -48,8 +57,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = false;
         boostSelected = false;
         cloneSelected = true;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
         skillSelected = true;
     }
 }
