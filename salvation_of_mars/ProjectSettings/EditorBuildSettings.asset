@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Story2.unity
     guid: b98c8d1ef4f575f49be26b4c26386975
   - enabled: 1
-    path: Assets/Scenes/AbilityUnlock/CloneUnlock.unity
+    path: Assets/Scenes/AbilityUnlock/Gravity Unlock.unity
     guid: 319ff4f4f624efd4398f192d7b057033
   - enabled: 1
     path: Assets/Scenes/Tutorials/CloneTutorial.unity
