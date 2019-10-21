@@ -71,14 +71,15 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
-        //animator.SetBool("InBoost", false); what stops the boost aniamtion.
+        animator.SetBool("InGravity", false);
     }
 
     public void ReverseGrav() // called when button to use reverse gravity ability is triggered
     {
+        animator.SetBool("InGravity", true);
+
         if (Time.time > nextReversed) // has cooldown time passed?
         {
-            animator.SetBool("IsJumping", true);
             Physics2D.gravity *= -1;
             controller.reverseGrav = !controller.reverseGrav;
             lastReversed = Time.time;
@@ -106,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
         jumping = true;
         animator.SetBool("IsJumping", true);
     }
+
+
    
     /// <summary>
     /// This is the death method for player
