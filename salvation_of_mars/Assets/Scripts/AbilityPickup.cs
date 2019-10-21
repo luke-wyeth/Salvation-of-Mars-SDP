@@ -26,7 +26,7 @@ public class AbilityPickup : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !abilitySpring.enabled)
         {
             abilitySpring.enabled = true;
-            pi.abilityUnlock = true;
+            //pi.abilityUnlock = true; // causing problemns right now
         }
     }
 }
