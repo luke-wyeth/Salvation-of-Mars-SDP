@@ -13,7 +13,7 @@ public class AbilityPickup : MonoBehaviour
     {
         abilitySpring = GetComponent<SpringJoint2D>();
         abilitySpring.enabled = false;
-        GameObject BackPack2 = GameObject.FindWithTag("Backpack2");
+        GameObject BackPack2 = GameObject.FindWithTag("Backpack");
         abilitySpring.connectedBody = BackPack2.GetComponent<Rigidbody2D>();
     }
 
@@ -26,7 +26,7 @@ public class AbilityPickup : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !abilitySpring.enabled)
         {
             abilitySpring.enabled = true;
-            //pi.abilityUnlock = true; // causing problemns right now
+            pi.abilityUnlock = true; 
         }
     }
 }

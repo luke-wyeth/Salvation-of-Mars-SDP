@@ -21,21 +21,21 @@ public class LevelComplete : MonoBehaviour
          {
              SceneManager.LoadScene("CloneTutorial");
          }
-         //else if (scene.name == "GravityUnlock")
-        // {
-         //    SceneManager.LoadScene("GravityTutorial");
-        // }
-        // else if (scene.name == "CloneUnlock") ;
-       //  {
-       //      SceneManager.LoadScene("CloneTutorial");
-       //  }
+         else if(scene.name == "BoostUnlock")
+         {
+             SceneManager.LoadScene("BoostTutorial");
+         }
+         else if(scene.name == "GravityUnlock")
+         {
+            SceneManager.LoadScene("GravityTutorial");
+         }
      }
 
     public void NextLevel()
     {
         Scene scene = SceneManager.GetActiveScene();
 
-        if (scene.name == "CloneUnlock")
+        if (scene.name == "CloneUnlock" || scene.name == "BoostUnlock" || scene.name == "GravityUnlock")
         {
             SceneManager.LoadScene(nextLevel + 1);
         }

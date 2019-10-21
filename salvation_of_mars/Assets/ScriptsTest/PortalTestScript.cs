@@ -68,8 +68,6 @@ namespace Tests
             Portal.transform.position = Vector3.zero;
             teleported = Player.GetComponent<Teleport>().teleported;
 
-            Player.GetComponent<Teleport>().teleport();
-
             Assert.AreEqual(Player.transform.position, Portal2.transform.position);     //Player position and portal2 position should be the same
             Assert.IsTrue(teleported);                                                  //Verify if player teleported
             yield return null;
@@ -82,8 +80,6 @@ namespace Tests
             Player.transform.position = Vector3.zero;       //Position of player and portal 2 are the same.
             Portal2.transform.position = Vector3.zero;
             teleported = Player.GetComponent<Teleport>().teleported;
-
-            Player.GetComponent<Teleport>().teleport();
 
             Assert.AreEqual(Portal.transform.position, Player.transform.position);      //Player position and portal position should be the same
             Assert.IsTrue(teleported);                                                  //Verify if player teleported  
