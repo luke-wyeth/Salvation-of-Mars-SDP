@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ToNextScene : MonoBehaviour
 {
+    public bool skipToNext;
+    [HideInInspector]
     public static int nextSceneToLoad;
     public static float score;
     public static bool levelFinished;
     public GameObject levelCompleteUI;
-    private int nextSceneToLoad;
-
 
     void Start()
     {
@@ -31,14 +31,18 @@ public class ToNextScene : MonoBehaviour
 
         if (scene.name == "Story1" || scene.name == "Story2")
         {
-
-            levelFinished = true;
-            //SceneManager.LoadScene(nextSceneToLoad);
-        } 
+            SceneManager.LoadScene(nextSceneToLoad);
+        }
         else if (pi.collectedCard)
         {
-            Time.timeScale = 0f;
-            levelCompleteUI.SetActive(true);
+            if (scene.name == "Boost Unlock" || scene.name == "Clone_Unlock" || scene.name == "Gravity Unlock")
+            {
+                levelCompleteUI.SetActive(true);
+            }
+            else
+            {
+                levelFinished = true;
+            }
         }
     }
 }
