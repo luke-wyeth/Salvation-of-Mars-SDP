@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillSelect : MonoBehaviour
-  
 {
     public GameObject skillSelectUI;
     public static bool gravitySelected = false; //The next 3 are used in classes that control skill usage as well
