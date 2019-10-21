@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     float nextReversed;
     float nextBoost;
 
+    bool speedBoostReady, gravityReady;
+
     float animStarted;
 
     public Animator animator;
@@ -29,8 +31,11 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalMoved = Input.GetAxisRaw("Horizontal") * speed;
 
+            speedBoostReady = false;
+            gravityReady = false;
+
             // set animator to run or idle
-            if(animator != null)
+            if (animator != null)
             {
                 animator.SetFloat("Speed", Mathf.Abs(horizontalMoved));
             }
@@ -80,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Time.time > nextReversed) // has cooldown time passed?
         {
+            gravityReady = true;
+
             Physics2D.gravity *= -1;
             controller.reverseGrav = !controller.reverseGrav;
             lastReversed = Time.time;
@@ -89,9 +96,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpeedBoost() // called when button to use speed boost ability is triggered
     {
-
+        
         if (Time.time > nextBoost) // has cooldown time passed?
         {
+            speedBoostReady = true;
+
             animator.SetBool("InBoost", true); // starts boost animation 
             animator.SetBool("IsJumping", false); // sets jumping animation to false while in boost animation.
             animStarted = Time.time;
@@ -100,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
             lastBoost = Time.time;
             nextBoost = lastBoost + 1f; // reset cooldown
         }
+
+        
     }
 
     public void Jump()
@@ -135,5 +146,15 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSecondsRealtime(1); 
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public bool isSpeedBoostReady()
+    {
+        return speedBoostReady;
+    }
+
+    public bool isGravityReady()
+    {
+        return gravityReady;
     }
 }

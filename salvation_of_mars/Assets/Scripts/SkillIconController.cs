@@ -9,8 +9,11 @@ public class SkillIconController : MonoBehaviour
     //public bool isImgOn;
     //public Image boostAbilityIcon, gravityAbilityIcon;
     public CloneController cloneController;
+    public PlayerMovement playerMovement;
     public Image boostCooldownBar, gravityCooldownBar, cloneCooldownBar;
     public GameObject boostAbilityObj, gravityAbilityObj, cloneAbilityObj;
+
+    private const float TIME_UNTIL_ABILITY_READY = 0.0165f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +34,14 @@ public class SkillIconController : MonoBehaviour
             boostAbilityObj.SetActive(true);
             gravityAbilityObj.SetActive(false);
             cloneAbilityObj.SetActive(false);
-            StartCoroutine(cooldownProgress(boostCooldownBar));
+            StartCoroutine(boostCooldownProgress());
         }
         else if (SkillSelect.gravitySelected)
         {
             gravityAbilityObj.SetActive(true);
             boostAbilityObj.SetActive(false);
             cloneAbilityObj.SetActive(false);
-            StartCoroutine(cooldownProgress(gravityCooldownBar));
+            StartCoroutine(gravityCooldownProgress());
         }
         else if (SkillSelect.cloneSelected)
         {
@@ -46,29 +49,39 @@ public class SkillIconController : MonoBehaviour
             boostAbilityObj.SetActive(false);
             gravityAbilityObj.SetActive(false);
 
-            StartCoroutine(cloneCooldown());
+            StartCoroutine(cloneCooldownProgress());
             //Cool down bar flashing in between 2 colours while in use
         }
     }
 
-    private IEnumerator cooldownProgress(Image cooldownBar)
+    private IEnumerator boostCooldownProgress()
     {
-        //cooldownBar.fillAmount += 0.01f;
-        //yield return null;
-        float timeLeft = Time.deltaTime;
-        float rate = 1.0f / 0.8f;
-
-        float progress = 0f;
-
-        while (progress <= 1f)
+        if (playerMovement.isSpeedBoostReady())
         {
-            cooldownBar.fillAmount = Mathf.Lerp(0, 1, progress);
-            progress += rate * Time.deltaTime;
-            yield return null;
+            boostCooldownBar.fillAmount = 0;
         }
+        else
+        {
+            boostCooldownBar.fillAmount += TIME_UNTIL_ABILITY_READY;
+        }
+        yield return null;
     }
 
-    private IEnumerator cloneCooldown()
+    private IEnumerator gravityCooldownProgress()
+    {
+        if (playerMovement.isGravityReady())
+        {
+            gravityCooldownBar.fillAmount = 0;
+        } 
+        else
+        {
+            gravityCooldownBar.fillAmount += TIME_UNTIL_ABILITY_READY;
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator cloneCooldownProgress()
     {
         //if (cloneController.clone.activeSelf)
         //{
@@ -79,7 +92,7 @@ public class SkillIconController : MonoBehaviour
 
         while (cloneController.getCloneControl().enabled)
         {
-            cloneCooldownBar.color = new Color(253, 149, 0);
+            cloneCooldownBar.color = new Color(253, 149, 0f);
             yield return new WaitForSeconds(0.5f);
             cloneCooldownBar.color = Color.clear;
         }

@@ -4553,6 +4553,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765335168}
   m_CullTransparentMesh: 0
+--- !u!114 &787796780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5864448105453654680, guid: 02e8e655f4b51854fae7f620e9b6cceb,
+    type: 3}
+  m_PrefabInstance: {fileID: 700387517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d9e932b36c8d44fb7dfd4289cba707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &816596953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4977,7 +4989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.58330053, b: 0, a: 1}
+  m_Color: {r: 0.99215686, g: 0.57555896, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5523,6 +5535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloneController: {fileID: 1243088821}
+  playerMovement: {fileID: 787796780}
   boostCooldownBar: {fileID: 1537905423}
   gravityCooldownBar: {fileID: 1019740547}
   cloneCooldownBar: {fileID: 1952655245}
@@ -5664,7 +5677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.99215686, g: 0.58431375, b: 0, a: 1}
+  m_Color: {r: 0.99215686, g: 0.5764706, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5675,8 +5688,8 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillMethod: 4
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6148,6 +6161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloneController: {fileID: 0}
+  playerMovement: {fileID: 0}
   boostCooldownBar: {fileID: 0}
   gravityCooldownBar: {fileID: 0}
   cloneCooldownBar: {fileID: 0}
@@ -6527,7 +6541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98738354, g: 0.99215686, b: 0, a: 1}
+  m_Color: {r: 0.99215686, g: 0.5764706, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
