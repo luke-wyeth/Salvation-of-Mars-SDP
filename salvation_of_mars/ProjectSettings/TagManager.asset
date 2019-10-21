@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Backpack
   - PlayerCloned
   - pushable
   - MovingPlatform
   - Grabbable
+  - Deadly
+  - JumpPad
+  - Backpack
+  - Backpack2
   layers:
   - Default
   - TransparentFX
@@ -43,11 +46,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: background
     uniqueID: 3211354099
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: player
     uniqueID: 2649218667
