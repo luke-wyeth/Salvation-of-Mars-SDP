@@ -20,7 +20,7 @@ public class SkillIconController : MonoBehaviour
     {
         boostCooldownBar.fillAmount = 1;
         gravityCooldownBar.fillAmount = 1;
-        cloneCooldownBar.fillAmount = 1;
+        cloneCooldownBar.fillAmount = 0;
 
         boostAbilityObj.SetActive(false);
         gravityAbilityObj.SetActive(false);
@@ -93,6 +93,7 @@ public class SkillIconController : MonoBehaviour
 
         while (cloneController.getCloneControl().enabled)
         {
+            cloneCooldownBar.fillAmount = 1;
             cloneCooldownBar.color = new Color(253/255f, 149/255f, 0);
             yield return new WaitForSeconds(0.5f);
             cloneCooldownBar.color = Color.clear;
