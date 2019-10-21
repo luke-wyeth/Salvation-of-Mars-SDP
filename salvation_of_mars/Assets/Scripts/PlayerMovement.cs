@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     bool jumping;
     bool active = true;
 
-
     // these variables used for cooldown timer to prevent spamming abilities
     float lastReversed;
     float lastBoost;
@@ -63,12 +62,9 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
 
-        if(animator != null)
+        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
         {
-            if ((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
-            {
-                animator.SetBool("InBoost", false);
-            }
+            animator.SetBool("InBoost", false);
         }
     }
 
@@ -133,22 +129,11 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator deathAnimationCoroutine()
     {
-        CharacterController2D player = gameObject.GetComponent<CharacterController2D>();
-        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
-        
-        player.reverseGrav = false;
-        player.upsidedown = false;
-
-        animator.SetBool("inGravity", false);    
         animator.SetBool("isDead", true);
 
-        active = false; // make it so player can't be controlled
-
         // Wait 1 second then call the next method
-        yield return new WaitForSecondsRealtime(1);
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reload the level
-        animator.SetBool("isDead", false);
-    }
+        yield return new WaitForSecondsRealtime(1); 
 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
