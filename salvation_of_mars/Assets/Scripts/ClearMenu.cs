@@ -10,6 +10,7 @@ public class ClearMenu : MonoBehaviour
     public float starOne;
     public float starTwo;
     public float starThree;
+    private int level;
 
     //Start is called before the first frame update
     void Start()
@@ -26,6 +27,12 @@ public class ClearMenu : MonoBehaviour
             Time.timeScale = 0f;
             setStars();
         }
+    }
+
+    public void saveLevel()
+    {
+        level = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("Level", level + 1);
     }
 
     public void setStars()
@@ -56,12 +63,14 @@ public class ClearMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        saveLevel();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void RestartGame()
     {
+        saveLevel();
         Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -69,6 +78,7 @@ public class ClearMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        saveLevel();
         Application.Quit();
     }
 }
