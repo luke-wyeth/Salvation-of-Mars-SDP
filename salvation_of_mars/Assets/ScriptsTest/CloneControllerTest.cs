@@ -12,6 +12,9 @@ namespace Tests
         private GameObject Clone;
         private CloneController cc;
 
+        private GameObject pArrow;
+        private GameObject cArrow;
+
         [SetUp]
         public void Init()
         {
@@ -28,6 +31,9 @@ namespace Tests
             Player.GetComponent<CharacterController2D>().CeilingCheck = ceilingCheckP.transform;
             Player.GetComponent<PlayerMovement>().controller = Player.GetComponent<CharacterController2D>();
 
+            pArrow = new GameObject("pArrow");
+            pArrow.transform.parent = Player.transform;
+
             // setup clone object
             Clone = new GameObject();
             Clone.AddComponent<PlayerMovement>();
@@ -41,10 +47,15 @@ namespace Tests
             Clone.GetComponent<CharacterController2D>().CeilingCheck = ceilingCheckC.transform;
             Clone.GetComponent<PlayerMovement>().controller = Clone.GetComponent<CharacterController2D>();
 
+            cArrow = new GameObject("cArrow");
+            cArrow.transform.parent = Clone.transform;
+
             // setup clone controller
             GameObject cloneController = new GameObject();
             cloneController.AddComponent<CloneController>();
             cc = cloneController.GetComponent<CloneController>();
+            cc.cloneArrow = cArrow;
+            cc.playerArrow = pArrow;
 
             cc.clone = Clone;
             cc.player = Player;
@@ -56,6 +67,8 @@ namespace Tests
             UnityEngine.Object.Destroy(Player);
             UnityEngine.Object.Destroy(Clone);
             UnityEngine.Object.Destroy(cc);
+            UnityEngine.Object.Destroy(pArrow);
+            UnityEngine.Object.Destroy(cArrow);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
@@ -119,6 +132,49 @@ namespace Tests
 
             Assert.IsTrue(cc.pFrozen); // player is frozen
             Assert.IsFalse(cc.cFrozen); // clone is not frozen
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator NoIndicatorsVisibleOnLoad()
+        {
+            // this tests that when the scene is first loaded, neither player
+            // nor clone arrow indicatoris visible
+
+            Assert.IsFalse(pArrow.activeSelf); // player arrow not visible
+            Assert.IsFalse(cArrow.activeSelf); // clone arrow not visible
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator CloneIndicatorVisibleFirstActivation()
+        {
+            // this tests that when the clone ability is first activated,
+            // the indicator is visible over the head of the clone and
+            // the indicator is NOT visible over the head of the player
+
+            cc.cloneAbilityButtonPressed(); // trigger press of clone ability button
+
+            Assert.IsFalse(pArrow.activeSelf); // player arrow not visible
+            Assert.IsTrue(cArrow.activeSelf); // clone arrow visible
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator PlayerIndicatorVisibleOnSwitchBack()
+        {
+            // this tests that when the user presses the clone ability button
+            // a second time, and control switches back to the player,
+            // the clone indicator is not visible and the player indicator is visible
+
+            cc.cloneAbilityButtonPressed(); // trigger first press of clone ability
+            cc.cloneAbilityButtonPressed(); // trigger second press to switch back to player
+
+            Assert.IsTrue(pArrow.activeSelf); // player arrow visible
+            Assert.IsFalse(cArrow.activeSelf); // clone arrow not visible
 
             yield return null;
         }

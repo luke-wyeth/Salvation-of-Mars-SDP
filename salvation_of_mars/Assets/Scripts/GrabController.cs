@@ -23,7 +23,7 @@ public class GrabController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetButtonDown("Grab"))
         {
             if (!grabbed) //then grab
             {
@@ -39,7 +39,7 @@ public class GrabController : MonoBehaviour
 
             throwChargeTimer += Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.V)) // else if branch for throw eligibility
+        else if (Input.GetButtonDown("Grab")) // else if branch for throw eligibility
         {
             throwChargeTimer += Time.deltaTime;
             if (grabbed && (throwChargeTimer > weakThrowTime))

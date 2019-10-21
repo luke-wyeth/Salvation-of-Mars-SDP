@@ -15,23 +15,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Story2.unity
     guid: b98c8d1ef4f575f49be26b4c26386975
   - enabled: 1
-    path: Assets/Scenes/AbilityUnlock/Gravity Unlock.unity
+    path: Assets/Scenes/AbilityUnlock/GravityUnlock.unity
     guid: 319ff4f4f624efd4398f192d7b057033
   - enabled: 1
-    path: Assets/Scenes/Tutorials/CloneTutorial.unity
-    guid: efeb3e36fb5dec04da21e47bdf5656a2
+    path: Assets/Scenes/Tutorials/GravityTutorial.unity
+    guid: 3fe00fe6d14075f4eba3493c5823af78
   - enabled: 1
     path: Assets/Scenes/CherylLevel1.unity
     guid: 5de908bc2b007294381af5862fa6c7cc
+  - enabled: 1
+    path: Assets/Scenes/AbilityUnlock/CloneUnlock.unity
+    guid: ebea6a6158dc9564ca6f0dbe6fd9d977
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/CloneTutorial.unity
+    guid: efeb3e36fb5dec04da21e47bdf5656a2
   - enabled: 1
     path: Assets/Scenes/JianLevel2Boost.unity
     guid: 0d23927ff7982234fbd2bd8dfd460968
   - enabled: 1
     path: Assets/Scenes/Tutorials/Bre_Lvl_1.unity
     guid: db43baa0d013f58489e17db39f82ee38
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/AbilityUnlock/BoostUnlock.unity
+    guid: 6377c89256261d641b0836208614d60b
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/BoostTutorial.unity
+    guid: db8f367acceec244f8514a48932f0b51
   - enabled: 1
     path: Assets/Scenes/DEMO LEVEL.unity
     guid: bf19684fff322b444a611ea3db1e9e15
