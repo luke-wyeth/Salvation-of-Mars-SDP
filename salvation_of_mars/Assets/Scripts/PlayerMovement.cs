@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     float lastBoost;
     float nextReversed;
     float nextBoost;
+
+    float animStarted;
 
     public Animator animator;
 
@@ -58,15 +61,23 @@ public class PlayerMovement : MonoBehaviour
         // args: (movement, crouch yes/no, jump yes/no)
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
+
+        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+        {
+            animator.SetBool("InBoost", false);
+        }
     }
 
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        animator.SetBool("InGravity", false);
     }
 
     public void ReverseGrav() // called when button to use reverse gravity ability is triggered
     {
+        animator.SetBool("InGravity", true);
+
         if (Time.time > nextReversed) // has cooldown time passed?
         {
             Physics2D.gravity *= -1;
@@ -78,8 +89,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpeedBoost() // called when button to use speed boost ability is triggered
     {
+
         if (Time.time > nextBoost) // has cooldown time passed?
         {
+            animator.SetBool("InBoost", true); // starts boost animation 
+            animator.SetBool("IsJumping", false); // sets jumping animation to false while in boost animation.
+            animStarted = Time.time;
+
             controller.speedBoost = true;
             lastBoost = Time.time;
             nextBoost = lastBoost + 1f; // reset cooldown
@@ -91,6 +107,33 @@ public class PlayerMovement : MonoBehaviour
         jumping = true;
         animator.SetBool("IsJumping", true);
     }
-   
 
+
+   
+    /// <summary>
+    /// This is the death method for player
+    /// it involves coroutine
+    /// </summary>
+    public void death()
+    {
+        StartCoroutine(deathAnimationCoroutine());
+    }
+
+    /// <summary>
+    /// This method relies on two functions.
+    /// The first function allows the animation to play
+    /// However we need to essentially Thread.sleep for 1 second
+    /// to allow the animation enough time to play all of its frames.
+    /// Then we can reload the scene (restart the level after player died)
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator deathAnimationCoroutine()
+    {
+        animator.SetBool("isDead", true);
+
+        // Wait 1 second then call the next method
+        yield return new WaitForSecondsRealtime(1); 
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

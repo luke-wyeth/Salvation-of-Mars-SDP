@@ -10,7 +10,6 @@ public class Spikes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-
        if(collider.CompareTag("Player"))
        {
             CharacterController2D player = collider.GetComponent<CharacterController2D>();
@@ -20,9 +19,8 @@ public class Spikes : MonoBehaviour
             player.reverseGrav = false;
             player.upsidedown = false;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Call the death of the player to restart the scene
+            player.GetComponent<PlayerMovement>().death();
        }
-
-
     }
 }

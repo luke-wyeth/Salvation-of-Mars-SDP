@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -190,22 +191,41 @@ public class CharacterController2D : MonoBehaviour
         upsidedown = !upsidedown;
     }
 
-    void onCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "MovingPlatform")
         {
             currMovingPlatform = coll.gameObject.transform; // set current moving platform to the platform the player collided with
             this.transform.SetParent(currMovingPlatform); // parent platform to player to prevent sliding off
         }
+        // JumpPad
+        if (coll.gameObject.tag == "JumpPad")
+        {
+            Rigidbody2D.AddForce(new Vector2(6f, JumpForce));
+            animator.SetBool("IsJumping", true);
+        }
+
+
     }
 
-    void onCollisionExit2D(Collision2D coll)
+    void OnCollisionExit2D(Collision2D coll)
     {
         if(coll.gameObject.tag == "MovingPlatform")
         {
             currMovingPlatform = null; // player can now exit platform
         }
     }
+
+    // Abilty Pickup
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag  ("pickup"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
+
 
 
 }
