@@ -40,7 +40,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = true;
         boostSelected = false;
         cloneSelected = false;
-
         skillSelected = true;
     }
 
