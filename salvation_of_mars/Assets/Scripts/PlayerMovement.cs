@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMoved * Time.fixedDeltaTime, false, jumping);
         jumping = false;
 
-        if((Time.time - 0.02f) > animStarted) // if boost animation should finish, end it
+        if((Time.time - 0.02f) > animStarted && animator != null) // if boost animation should finish, end it
         {
             animator.SetBool("InBoost", false);
         }
@@ -70,8 +70,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLanding()
     {
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("InGravity", false);
+        if(animator != null)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("InGravity", false);
+        }
     }
 
     public void ReverseGrav() // called when button to use reverse gravity ability is triggered
@@ -105,7 +108,11 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         jumping = true;
-        animator.SetBool("IsJumping", true);
+
+        if(animator != null)
+        {
+            animator.SetBool("IsJumping", true);
+        }
     }
 
 
@@ -129,8 +136,11 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator deathAnimationCoroutine()
     {
-        animator.SetBool("isDead", true);
-
+        if(animator != null)
+        {
+            animator.SetBool("isDead", true);
+        }
+       
         // Wait 1 second then call the next method
         yield return new WaitForSecondsRealtime(1); 
 
