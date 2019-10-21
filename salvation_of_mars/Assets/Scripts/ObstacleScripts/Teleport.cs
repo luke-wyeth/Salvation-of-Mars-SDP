@@ -6,13 +6,12 @@ public class Teleport : MonoBehaviour
 {
     public GameObject connectedObject;
     private GameObject player;
-    public bool teleported;
+    public bool teleported = false;
 
     // Start is called before the first frame update
     //find if player is next to an object
     void Start()
     {
-        teleported = false;
         player = GameObject.FindWithTag("Player");
     }
 
