@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa78502c7bb0a94784678939907e6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipToNext: 0
+  score: 0
   levelCompleteUI: {fileID: 0}
   tutorialCompleteUI: {fileID: 0}
 --- !u!114 &6539344651158605519

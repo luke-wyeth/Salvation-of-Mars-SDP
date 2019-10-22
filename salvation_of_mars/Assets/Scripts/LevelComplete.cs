@@ -50,7 +50,7 @@ public class LevelComplete : MonoBehaviour
          {
             SceneManager.LoadScene("GravityTutorial");
          }
-            else if (scene.name == "BoostUnlock")
+         else if (scene.name == "BoostUnlock")
          {  
             SceneManager.LoadScene("BoostTutorial");
          }

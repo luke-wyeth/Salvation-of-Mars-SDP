@@ -44,7 +44,7 @@ public class ToNextScene : MonoBehaviour
                 levelCompleteUI.SetActive(true);
             }
         }
-        else if(scene.name == "BoostTutorial" || scene.name == "Bre_Lvl_1" || scene.name == "GravityTutorial" || scene.name == "GravTutorial" || scene.name == "ThrowTutorial")
+        else if(scene.name == "BoostTutorial" || scene.name == "Movement Tutorial" || scene.name == "CloneTutorial" || scene.name == "GravityTutorial" || scene.name == "ThrowTutorial")
         {
             if (pi.collectedCard)
             {
