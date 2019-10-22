@@ -8,6 +8,9 @@ public class KeyCard : MonoBehaviour
     // Start is called before the first frame update
     //object does not connect becuase it is false at the start
     //Reciece a gameobject with a tag "Backpack"
+
+    public Animator alarmAnimator;
+
     void Start()
     {
         spring = GetComponent<SpringJoint2D>();
