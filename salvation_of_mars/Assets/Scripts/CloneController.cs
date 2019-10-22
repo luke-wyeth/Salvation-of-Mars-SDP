@@ -54,7 +54,7 @@ public class CloneController : MonoBehaviour
     void Update()
     {
         // if ability3 triggered (clone)
-        if (Input.GetButtonDown("Fire3")&& SkillSelect.cloneSelected)
+        if (Input.GetButtonDown("Fire3")&& SkillSelect.cloneSelected&& !SkillSelect.isActive)
         {
             cloneAbilityButtonPressed();
         }

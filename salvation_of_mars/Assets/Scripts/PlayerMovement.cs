@@ -39,11 +39,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
-            if (Input.GetButtonDown("Fire1")&& SkillSelect.gravitySelected) // activate ability1 (reverse gravity)
+            if (Input.GetButtonDown("Fire1")&& SkillSelect.gravitySelected&& !SkillSelect.isActive) // activate ability1 (reverse gravity)
             {
                 ReverseGrav();
             }
-            if (Input.GetButtonDown("Fire2")&& SkillSelect.boostSelected) // activate ability2 (speed/sprint)
+            if (Input.GetButtonDown("Fire2")&& SkillSelect.boostSelected&& !SkillSelect.isActive) // activate ability2 (speed/sprint)
             {
                 SpeedBoost();
             }

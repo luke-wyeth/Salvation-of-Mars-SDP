@@ -13,12 +13,14 @@ public class SkillSelect : MonoBehaviour
     public bool hasBoost;
     public bool hasGrav;
     public bool hasClone;
+    public static bool isActive = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0f;
         skillSelected = false;
+        isActive = true;
     }
 
     // Update is called once per frame
@@ -27,18 +29,22 @@ public class SkillSelect : MonoBehaviour
         if (PauseMenu.skillSelectOff == false)
         {
             skillSelectUI.SetActive(true);
+            //isActive = true;
         }
         if (PauseMenu.skillSelectOff == true)
         {
             skillSelectUI.SetActive(false);
+            //isActive = true;
         }
         if(skillSelected)
         {
             skillSelectUI.SetActive(false);
             Time.timeScale = 1f;
+            isActive = false;
         }
         if(!skillSelected)
         {
+            //isActive = true;
             keyboardInput();
         }
     }
