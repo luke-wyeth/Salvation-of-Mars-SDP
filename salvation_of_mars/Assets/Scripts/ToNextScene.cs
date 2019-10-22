@@ -40,7 +40,7 @@ public class ToNextScene : MonoBehaviour
         {
             if(pi.collectedCard && pi.abilityUnlock)
             {
-                Time.timeScale = 0f;
+                Time.timeScale = 1f;
                 levelCompleteUI.SetActive(true);
             }
         }
@@ -48,7 +48,7 @@ public class ToNextScene : MonoBehaviour
         {
             if (pi.collectedCard)
             {
-                Time.timeScale = 0f;
+                Time.timeScale = 1f;
                 tutorialCompleteUI.SetActive(true);
             }
         }
