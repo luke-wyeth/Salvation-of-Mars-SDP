@@ -17,6 +17,7 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        collectedCard = false;
+        abilityUnlock = false;
     }
 }
