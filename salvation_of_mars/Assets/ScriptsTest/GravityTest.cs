@@ -56,7 +56,7 @@ namespace Tests
         {
             scaleBefore = Player.GetComponent<Transform>().localScale.y;   //Gets the local scale before the rotate.
             Player.GetComponent<PlayerMovement>().ReverseGrav();           //Calls function to reverse gravity.
-            yield return null;
+            yield return new WaitForSeconds(2);
             scaleAfter = Player.GetComponent<Transform>().localScale.y;    //Gets the local scale before the rotate. 
             Assert.IsTrue(scaleBefore == -(scaleAfter));                   //Tests if player model will rotate when reverse gravity is called.
             yield return null;
