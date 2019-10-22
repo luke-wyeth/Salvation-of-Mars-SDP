@@ -22,12 +22,12 @@ public class muteSittings
         if (AudioListener.pause == true)
         {
             AudioListener.pause = false;
-            
+
         }
         else
         {
             AudioListener.pause = true;
-           
+
         }
     }
 }
