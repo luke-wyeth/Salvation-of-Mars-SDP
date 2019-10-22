@@ -215,17 +215,4 @@ public class CharacterController2D : MonoBehaviour
             currMovingPlatform = null; // player can now exit platform
         }
     }
-
-    // Abilty Pickup
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag  ("pickup"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
-
-
-
 }
