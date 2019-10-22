@@ -10,8 +10,16 @@ public class LevelComplete : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+    }
+
+    void Update()
+    {
+        if (ToNextScene.levelFinished)
+        {
+            Time.timeScale = 0f;
+        }
     }
 
     public void saveLevel()
