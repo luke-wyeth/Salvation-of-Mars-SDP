@@ -24,7 +24,6 @@ public class SkillSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyboardInput();
         if (PauseMenu.skillSelectOff == false)
         {
             skillSelectUI.SetActive(true);
@@ -37,6 +36,10 @@ public class SkillSelect : MonoBehaviour
         {
             skillSelectUI.SetActive(false);
             Time.timeScale = 1f;
+        }
+        if(!skillSelected)
+        {
+            keyboardInput();
         }
     }
 
