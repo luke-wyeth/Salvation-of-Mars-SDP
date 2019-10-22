@@ -47,6 +47,10 @@ public class SkillSelect : MonoBehaviour
             //isActive = true;
             keyboardInput();
         }
+        if(!skillSelected)
+        {
+            keyboardInput();
+        }
     }
 
     public void keyboardInput()

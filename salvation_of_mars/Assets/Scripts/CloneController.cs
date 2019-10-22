@@ -81,8 +81,8 @@ public class CloneController : MonoBehaviour
         {
             cloneVisible = true;
 
-            clone.SetActive(true); // enable clone object + sprite
-
+            clone.SetActive(true); // enable clone object + sprite 
+            
             clone.transform.position = player.transform.position; // teleport clone to same spot as player
 
             cFrozen = false;
@@ -109,6 +109,11 @@ public class CloneController : MonoBehaviour
             playerArrow.SetActive(!playerArrow.activeSelf);
         }
 
+    }
+
+    public PlayerMovement getCloneControl()
+    {
+        return cloneControl;
     }
 }
 
