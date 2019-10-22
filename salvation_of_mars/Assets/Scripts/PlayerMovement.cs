@@ -140,7 +140,16 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isDead", true);
         }
-       
+
+        CharacterController2D player = this.gameObject.GetComponent<CharacterController2D>();
+        // this prevents the player from restarting the level with reversed gravity but upside down stuck in the ground
+        // reset gravity to normal gravity, right side up, regardless of current gravity setting
+        Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
+        player.reverseGrav = false;
+        player.upsidedown = false;
+
+        active = false;
+
         // Wait 1 second then call the next method
         yield return new WaitForSecondsRealtime(1); 
 
