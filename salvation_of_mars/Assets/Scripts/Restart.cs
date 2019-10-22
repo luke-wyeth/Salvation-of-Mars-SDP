@@ -10,7 +10,7 @@ public class Restart : MonoBehaviour
     //Gravity resets back to normal
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Restart"))
         {
             Physics2D.gravity = new Vector2(Physics2D.gravity.x, -(Mathf.Abs(Physics2D.gravity.y)));
 
