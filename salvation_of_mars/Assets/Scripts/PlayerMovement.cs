@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
     public void SpeedBoost() // called when button to use speed boost ability is triggered
     {
 
-        if (Time.time > nextBoost) // has cooldown time passed?
+        if (Time.time > nextBoost && animator != null) // has cooldown time passed?
         {
             animator.SetBool("InBoost", true); // starts boost animation 
             animator.SetBool("IsJumping", false); // sets jumping animation to false while in boost animation.
