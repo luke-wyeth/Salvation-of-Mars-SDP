@@ -7,21 +7,14 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
-    public static bool skillSelectOn = false;
-    public static bool skillSelectOff = false;
 
     // Update is called once per frame
     //Escape key will activate the PauseGame function.
     void Update()
     {
-        Scene scene = SceneManager.GetActiveScene();
         if (!gameIsPaused)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                PauseGame();
-            }
-            else if ((scene.name == "credits") && Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && SkillSelect.skillSelected)
             {
                 PauseGame();
             }
@@ -31,27 +24,14 @@ public class PauseMenu : MonoBehaviour
     //Remove the pause menu UI and let the game be playable
     public void ResumeGame()
     {
-        if (!SkillSelect.skillSelected)
-        {
-            skillSelectOff = false;
-            pauseMenuUI.SetActive(false);
-            gameIsPaused = false;
-        }
-        else
-        {
-            pauseMenuUI.SetActive(false);
-            Time.timeScale = 1f;
-            gameIsPaused = false;
-        }
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
     }
 
     //Activate the pause menu UI and let the game be unplayable
     void PauseGame()
     {
-        if (!SkillSelect.skillSelected)
-        {
-            skillSelectOff = true;
-        }
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -65,14 +45,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameIsPaused = false;
-        skillSelectOff = false;
     }
 
     //Function to go to the main menu
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        gameIsPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -1407,11 +1407,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3531208062251859937, guid: 4601a00c036fe214cb2611a114066771,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3531208062251859946, guid: 4601a00c036fe214cb2611a114066771,
         type: 3}
       propertyPath: m_LocalPosition.x
