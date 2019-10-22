@@ -198,6 +198,14 @@ public class CharacterController2D : MonoBehaviour
             currMovingPlatform = coll.gameObject.transform; // set current moving platform to the platform the player collided with
             this.transform.SetParent(currMovingPlatform); // parent platform to player to prevent sliding off
         }
+        // JumpPad
+        if (coll.gameObject.tag == "JumpPad")
+        {
+            Rigidbody2D.AddForce(new Vector2(6f, JumpForce));
+            animator.SetBool("IsJumping", true);
+        }
+
+
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -208,7 +216,16 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    // Abilty Pickup
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag  ("pickup"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
-     
+
+
 
 }

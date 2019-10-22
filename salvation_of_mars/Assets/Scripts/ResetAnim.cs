@@ -9,13 +9,18 @@ public class ResetAnim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.SetActive(false);
-        player.SetActive(true);
+        resetAnimations();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void resetAnimations()
+    {
+        player.SetActive(false);
+        player.SetActive(true);
     }
 }

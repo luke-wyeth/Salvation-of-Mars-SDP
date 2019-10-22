@@ -53,28 +53,4 @@ public class LevelSelect : MonoBehaviour
     {
         SceneManager.LoadScene(14);
     }
-    public void loadlevel13()
-    {
-        SceneManager.LoadScene(15);
-    }
-    public void loadlevel14()
-    {
-        SceneManager.LoadScene(16);
-    }
-    public void loadlevel15()
-    {
-        SceneManager.LoadScene(17);
-    }
-    public void loadlevel16()
-    {
-        SceneManager.LoadScene(18);
-    }
-    public void loadlevel17()
-    {
-        SceneManager.LoadScene(19);
-    }
-    public void loadlevel18()
-    {
-        SceneManager.LoadScene(20);
-    }
 }

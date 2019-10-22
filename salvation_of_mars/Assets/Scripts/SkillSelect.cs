@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillSelect : MonoBehaviour
-  
 {
     public GameObject skillSelectUI;
     public static bool gravitySelected = false; //The next 3 are used in classes that control skill usage as well
     public static bool boostSelected = false;
     public static bool cloneSelected = false;
     public static bool skillSelected = false; //For pause menu script to refer to
+    public bool hasBoost;
+    public bool hasGrav;
+    public bool hasClone;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,36 @@ public class SkillSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        keyboardInput();
+        if (PauseMenu.skillSelectOff == false)
+        {
+            skillSelectUI.SetActive(true);
+        }
+        if (PauseMenu.skillSelectOff == true)
+        {
+            skillSelectUI.SetActive(false);
+        }
+        if(skillSelected)
+        {
+            skillSelectUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void keyboardInput()
+    {
+        if(Input.GetButtonDown("Fire1")&&hasGrav)
+        {
+            ReverseGravity();
+        }
+        if (Input.GetButtonDown("Fire2")&&hasBoost)
+        {
+            Boost();
+        }
+        if (Input.GetButtonDown("Fire3")&&hasClone)
+        {
+            Clone();
+        }
     }
 
     public void ReverseGravity()
@@ -29,8 +61,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = true;
         boostSelected = false;
         cloneSelected = false;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
         skillSelected = true;
     }
 
@@ -39,8 +69,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = false;
         boostSelected = true;
         cloneSelected = false;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
         skillSelected = true;
     }
 
@@ -49,8 +77,6 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = false;
         boostSelected = false;
         cloneSelected = true;
-        Time.timeScale = 1f;
-        skillSelectUI.SetActive(false);
         skillSelected = true;
     }
 }
