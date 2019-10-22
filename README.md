@@ -9,3 +9,7 @@ puzzle.
 
 Each level contains a range of puzzles and obstacles, like spikes, slime, moving platforms and buttons that activate or deactivate 
 obstacles. 
+
+To play the game, pull from the release branch of this repo.
+
+You can open the source code of the game by opening as a project in Unity, or to play the game simply run the executable Run file included in the release branch.
