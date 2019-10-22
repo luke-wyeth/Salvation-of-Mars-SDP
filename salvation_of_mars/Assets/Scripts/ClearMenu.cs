@@ -41,15 +41,15 @@ public class ClearMenu : MonoBehaviour
         stars[1].SetActive(false);
         stars[2].SetActive(false);
 
-        if (starOne >= ToNextScene.score)
+        if (starOne >= ToNextScene.finalScore)
         {
             stars[0].SetActive(true);
         }
-        if (starTwo >= ToNextScene.score)
+        if (starTwo >= ToNextScene.finalScore)
         {
             stars[1].SetActive(true);
         }
-        if (starThree >= ToNextScene.score)
+        if (starThree >= ToNextScene.finalScore)
         {
             stars[2].SetActive(true);
         }

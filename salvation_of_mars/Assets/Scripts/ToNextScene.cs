@@ -8,7 +8,8 @@ public class ToNextScene : MonoBehaviour
     //public bool skipToNext;
     //[HideInInspector]
     public static int nextSceneToLoad;
-    public static float score;
+    public float score;
+    public static float finalScore;
     public static bool levelFinished;
     public GameObject levelCompleteUI;
     public GameObject tutorialCompleteUI;
@@ -17,7 +18,7 @@ public class ToNextScene : MonoBehaviour
     {
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
         levelFinished = false;
-        score = 0.0f;
+        //score = 0.0f;
     }
 
     void Update()
@@ -29,6 +30,7 @@ public class ToNextScene : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         PlayerInfo pi = collision.gameObject.GetComponent<PlayerInfo>();
+        finalScore = score;
 
         if (scene.name == "Story1" || scene.name == "Story2")
         {
