@@ -45,8 +45,8 @@ EditorBuildSettings:
     path: Assets/Scenes/LukeLevel2.unity
     guid: 47efed9fdd731514295a3292d7be6a5d
   - enabled: 1
-    path: Assets/Scenes/wei_level1.unity
-    guid: 6f533ebaa1078416597a1c7e0e26694e
+    path: Assets/Scenes/WeiLevel1.unity
+    guid: af36903a400f64fb8a9b8ff4e3d3942c
   - enabled: 1
     path: Assets/Scenes/projectile lvl.unity
     guid: 5544435ebb8c4914d8b264f4cf0b5628
@@ -69,8 +69,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MattLevel1.unity
     guid: 894c753df8668df45b3da5a4cf1cf79e
   - enabled: 1
-    path: Assets/Scenes/wei_level2.unity
-    guid: 9043c0bfe85eb4fac8c12b3ad5ef9582
+    path: Assets/Scenes/WeiLevel2.unity
+    guid: 853d55f3774464d2580b150206199b56
   - enabled: 1
     path: Assets/Scenes/LukeLevel1.unity
     guid: 7180a8f04aba4824aaad53dc7c693b66
