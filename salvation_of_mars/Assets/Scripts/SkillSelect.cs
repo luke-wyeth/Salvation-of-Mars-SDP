@@ -24,6 +24,7 @@ public class SkillSelect : MonoBehaviour
         gravitySelected = false;
         boostSelected = false;
         cloneSelected = false;
+        skillSelectUI.SetActive(true);
 }
 
     // Update is called once per frame
