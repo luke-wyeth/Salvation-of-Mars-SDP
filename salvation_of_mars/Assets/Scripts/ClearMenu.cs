@@ -59,6 +59,7 @@ public class ClearMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(ToNextScene.nextSceneToLoad);
+        ToNextScene.levelFinished = false;
     }
 
     public void MainMenu()

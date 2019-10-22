@@ -20,27 +20,51 @@ public class SoundManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    jumpSrc.PlayOneShot(jumpSound);
+        //}
+        //if(Input.GetKeyDown(KeyCode.A))
+        //{
+        //    moveSrc.PlayOneShot(moveSound);
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    moveSrc.PlayOneShot(moveSound);
+        //}
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    moveSrc.PlayOneShot(boostSound);
+        //}
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    moveSrc.PlayOneShot(cloneSound);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    moveSrc.PlayOneShot(gravitySound);
+        //}
+        if (Input.GetButtonDown("Jump"))
         {
             jumpSrc.PlayOneShot(jumpSound);
         }
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveSrc.PlayOneShot(moveSound);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveSrc.PlayOneShot(moveSound);
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("Fire2")&&SkillSelect.boostSelected)
         {
             moveSrc.PlayOneShot(boostSound);
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("Fire3")&&SkillSelect.cloneSelected)
         {
             moveSrc.PlayOneShot(cloneSound);
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetButtonDown("Fire1")&&SkillSelect.gravitySelected)
         {
             moveSrc.PlayOneShot(gravitySound);
         }

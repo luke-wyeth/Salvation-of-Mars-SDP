@@ -7,11 +7,17 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
-    public static bool skillSelectOn = false;
+//    public static bool skillSelectOn = false;
     public static bool skillSelectOff = false;
 
     // Update is called once per frame
     //Escape key will activate the PauseGame function.
+
+    void Start()
+    {
+        skillSelectOff = false;
+    }
+
     void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -45,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         if (!SkillSelect.skillSelected)
         {
             skillSelectOff = false;
+            Time.timeScale = 1f;
             pauseMenuUI.SetActive(false);
             gameIsPaused = false;
         }

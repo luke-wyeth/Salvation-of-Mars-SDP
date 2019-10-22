@@ -21,7 +21,11 @@ public class SkillSelect : MonoBehaviour
         Time.timeScale = 0f;
         skillSelected = false;
         isActive = true;
-    }
+        gravitySelected = false;
+        boostSelected = false;
+        cloneSelected = false;
+        skillSelectUI.SetActive(true);
+}
 
     // Update is called once per frame
     void Update()
@@ -29,6 +33,7 @@ public class SkillSelect : MonoBehaviour
         if (PauseMenu.skillSelectOff == false)
         {
             skillSelectUI.SetActive(true);
+            Time.timeScale = 0f;
             //isActive = true;
         }
         if (PauseMenu.skillSelectOff == true)
