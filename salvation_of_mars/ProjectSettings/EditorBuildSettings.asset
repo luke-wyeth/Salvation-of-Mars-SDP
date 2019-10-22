@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuCheryl.unity
-    guid: 5406f2f226015fb46ae6e153b5f27264
+    path: Assets/Scenes/MainMenu.unity
+    guid: 880787f0176f446989a304e14996e625
   - enabled: 1
     path: Assets/Scenes/Story1.unity
     guid: 98bf34a859dec464880144ba071b22c4
