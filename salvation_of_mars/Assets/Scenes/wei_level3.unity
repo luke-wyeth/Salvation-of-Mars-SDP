@@ -1426,6 +1426,8 @@ MonoBehaviour:
   clone: {fileID: 0}
   cFrozen: 0
   pFrozen: 0
+  playerArrow: {fileID: 0}
+  cloneArrow: {fileID: 0}
 --- !u!4 &1762169399
 Transform:
   m_ObjectHideFlags: 0
