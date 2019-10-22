@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         if (!SkillSelect.skillSelected)
         {
             skillSelectOff = false;
+            Time.timeScale = 1f;
             pauseMenuUI.SetActive(false);
             gameIsPaused = false;
         }

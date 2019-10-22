@@ -29,6 +29,7 @@ public class SkillSelect : MonoBehaviour
         if (PauseMenu.skillSelectOff == false)
         {
             skillSelectUI.SetActive(true);
+            Time.timeScale = 0f;
             //isActive = true;
         }
         if (PauseMenu.skillSelectOff == true)
