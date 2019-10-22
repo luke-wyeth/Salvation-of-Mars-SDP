@@ -15,15 +15,26 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (!gameIsPaused)
+        if (gameIsPaused == false)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape)||Input.GetButtonDown("Pause"))
             {
                 PauseGame();
             }
             else if ((scene.name == "credits") && Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseGame();
+            }
+        }
+        else if (gameIsPaused == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)||Input.GetButtonDown("Pause"))
+            {
+                ResumeGame();
+            }
+            else if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Restart"))
+            {
+                RestartGame();
             }
         }
     }
