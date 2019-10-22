@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Story2.unity
     guid: b98c8d1ef4f575f49be26b4c26386975
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorials/Movement Tutorial.unity
     guid: c30e84c20ad9d40a694a9d37b8b19bfe
   - enabled: 1
