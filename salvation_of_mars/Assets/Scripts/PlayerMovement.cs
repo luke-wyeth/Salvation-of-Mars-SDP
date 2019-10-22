@@ -79,7 +79,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReverseGrav() // called when button to use reverse gravity ability is triggered
     {
-        animator.SetBool("InGravity", true);
+
+        if(animator != null)
+        {
+            animator.SetBool("InGravity", true);
+        }
 
         if (Time.time > nextReversed) // has cooldown time passed?
         {
