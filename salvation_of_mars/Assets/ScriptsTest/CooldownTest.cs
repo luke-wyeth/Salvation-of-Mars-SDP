@@ -44,6 +44,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator GravityCooldownTest()
         {
+            // this checks that after waiting for the cooldown, the player can use gravity ability
             beforeReverse = Player.GetComponent<Transform>().localScale.y;
             Player.GetComponent<PlayerMovement>().ReverseGrav();
             yield return new WaitForSeconds(2);
@@ -56,6 +57,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator GravityCooldownTestFail()
         {
+            // this checks that the player cannot use gravity before waiting for cooldown to occur
             beforeReverse = Player.GetComponent<Transform>().localScale.y;
             Player.GetComponent<PlayerMovement>().ReverseGrav();
             yield return new WaitForSeconds(0);
@@ -68,6 +70,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator BoostCooldownTest()
         {
+            // checks that player can use boost after waiting for cooldown
             scaleBefore = Player.GetComponent<Rigidbody2D>().velocity.y;
             Player.GetComponent<PlayerMovement>().SpeedBoost();
             yield return new WaitForSeconds(2);
@@ -80,6 +83,7 @@ namespace Tests
         [UnityTest]
         public IEnumerator BoostCooldownTestFail()
         {
+            // checks that the player cannot use boost before cooldown time is up
             scaleBefore = Player.GetComponent<Rigidbody2D>().velocity.y;
             Player.GetComponent<PlayerMovement>().SpeedBoost();
             yield return null;
