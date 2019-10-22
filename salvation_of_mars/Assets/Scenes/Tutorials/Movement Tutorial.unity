@@ -5313,12 +5313,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1014378392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5124617902137466697, guid: c5890cd9fbee0c64aa832ebac5b7349e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1986605013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026496315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,7 +5638,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tutorialCompleteUI
       value: 
-      objectReference: {fileID: 1014378392}
+      objectReference: {fileID: 1986605014}
     - target: {fileID: 3809949244948625080, guid: 17164aa9f2dccac41ad3c8d3b2625e3a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -6226,6 +6220,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5890cd9fbee0c64aa832ebac5b7349e, type: 3}
+--- !u!1 &1986605014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5124617903320843518, guid: c5890cd9fbee0c64aa832ebac5b7349e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1986605013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2105828031 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5864448105453654673, guid: 02e8e655f4b51854fae7f620e9b6cceb,
