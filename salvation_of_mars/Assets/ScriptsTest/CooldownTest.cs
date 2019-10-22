@@ -44,48 +44,48 @@ namespace Tests
         [UnityTest]
         public IEnumerator GravityCooldownTest()
         {
-            beforeReverse = Physics2D.gravity.y;
+            beforeReverse = Player.GetComponent<Transform>().localScale.y;
             Player.GetComponent<PlayerMovement>().ReverseGrav();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             Player.GetComponent<PlayerMovement>().ReverseGrav();
-            afterReverse = Physics2D.gravity.y;                            //Get y axis of gravity vector (vertical) after rotation.
-            Assert.IsTrue(beforeReverse != afterReverse);               //Tests if gravity is inverted or not. Assert should be true if vertical gravity inverts.
+            afterReverse = Player.GetComponent<Transform>().localScale.y;                          
+            Assert.IsTrue(beforeReverse == -(afterReverse));               
             yield return null;
         }
 
         [UnityTest]
         public IEnumerator GravityCooldownTestFail()
         {
-            beforeReverse = Physics2D.gravity.y;
+            beforeReverse = Player.GetComponent<Transform>().localScale.y;
             Player.GetComponent<PlayerMovement>().ReverseGrav();
             yield return new WaitForSeconds(0);
             Player.GetComponent<PlayerMovement>().ReverseGrav();
-            afterReverse = Physics2D.gravity.y;                            //Get y axis of gravity vector (vertical) after rotation.
-            Assert.IsTrue(beforeReverse == afterReverse);               //Tests if gravity is inverted or not. Assert should be true if vertical gravity inverts.
+            afterReverse = Player.GetComponent<Transform>().localScale.y;                          
+            Assert.IsTrue(beforeReverse == afterReverse);               
             yield return null;
         }
 
         [UnityTest]
         public IEnumerator BoostCooldownTest()
         {
-            scaleBefore = Player.GetComponent<Transform>().localScale.x;
+            scaleBefore = Player.GetComponent<Rigidbody2D>().velocity.y;
             Player.GetComponent<PlayerMovement>().SpeedBoost();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             Player.GetComponent<PlayerMovement>().SpeedBoost();
-            scaleAfter = Player.GetComponent<Transform>().localScale.x;
-            Assert.IsTrue(scaleBefore != scaleAfter);                //Tests if gravity is inverted or not. Assert should be true if vertical gravity inverts.
+            scaleAfter = Player.GetComponent<Rigidbody2D>().velocity.y;
+            Assert.IsTrue(scaleBefore != scaleAfter);                
             yield return null;
         }
 
         [UnityTest]
         public IEnumerator BoostCooldownTestFail()
         {
-            scaleBefore = Player.GetComponent<Transform>().localScale.x;
+            scaleBefore = Player.GetComponent<Rigidbody2D>().velocity.y;
             Player.GetComponent<PlayerMovement>().SpeedBoost();
-            yield return new WaitForSeconds(0);
+            yield return null;
             Player.GetComponent<PlayerMovement>().SpeedBoost();
-            scaleAfter = Player.GetComponent<Transform>().localScale.x;
-            Assert.IsTrue(scaleBefore == scaleAfter);                //Tests if gravity is inverted or not. Assert should be true if vertical gravity inverts.
+            scaleAfter = Player.GetComponent<Rigidbody2D>().velocity.y;
+            Assert.IsTrue(scaleBefore == scaleAfter);                
             yield return null;
         }
     }
