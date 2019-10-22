@@ -11,13 +11,12 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        collectedCard = false;
+        abilityUnlock = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        collectedCard = false;
-        abilityUnlock = false;
     }
 }

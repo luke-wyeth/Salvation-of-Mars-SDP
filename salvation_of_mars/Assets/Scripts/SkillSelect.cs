@@ -21,7 +21,10 @@ public class SkillSelect : MonoBehaviour
         Time.timeScale = 0f;
         skillSelected = false;
         isActive = true;
-    }
+        gravitySelected = false;
+        boostSelected = false;
+        cloneSelected = false;
+}
 
     // Update is called once per frame
     void Update()
