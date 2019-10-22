@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class SkillIconController : MonoBehaviour
 {
-    //public bool isBoostImgOn, isGravityImgOn, isCloneImgOn;
-    //public bool isImgOn;
-    //public Image boostAbilityIcon, gravityAbilityIcon;
-    public CloneController cloneController;
+    public CloneController cloneController; //Need to reference the controller and movement scripts
     public PlayerMovement playerMovement;
     public Image boostCooldownBar, gravityCooldownBar, cloneCooldownBar;
     public GameObject boostAbilityObj, gravityAbilityObj, cloneAbilityObj;
 
     private const float TIME_UNTIL_ABILITY_READY = 0.0165f;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Setting up the ability icons so that only one can
+    /// show up after the ability is selected
+    /// </summary>
     void Start()
     {
         boostCooldownBar.fillAmount = 1;
@@ -32,6 +32,7 @@ public class SkillIconController : MonoBehaviour
     {
         if (SkillSelect.boostSelected)
         {
+            //Disable other ability icons so only the enabled ability is active
             boostAbilityObj.SetActive(true);
             gravityAbilityObj.SetActive(false);
             cloneAbilityObj.SetActive(false);
@@ -50,19 +51,21 @@ public class SkillIconController : MonoBehaviour
             boostAbilityObj.SetActive(false);
             gravityAbilityObj.SetActive(false);
 
-            StartCoroutine(cloneCooldownProgress());
             //Cool down bar flashing in between 2 colours while in use
+            StartCoroutine(cloneCooldownProgress());   
         }
     }
 
     private IEnumerator boostCooldownProgress()
     {
+        //The player has used the boost ability so reset the cooldown bar
         if (playerMovement.isSpeedBoostReady())
         {
             boostCooldownBar.fillAmount = 0;
         }
         else
         {
+            //Fill up the boostbar cooldown at a specified amount of rate (time)
             boostCooldownBar.fillAmount += TIME_UNTIL_ABILITY_READY;
         }
         yield return null;
@@ -84,20 +87,12 @@ public class SkillIconController : MonoBehaviour
 
     private IEnumerator cloneCooldownProgress()
     {
-        //if (cloneController.clone.activeSelf)
-        //{
-        //    cloneCooldownBar.color = Color.red;
-        //    yield return new WaitForSecondsRealtime(.5f);
-        //    cloneCooldownBar.color = Color.blue;
-        //}
-
         while (cloneController.getCloneControl().enabled)
         {
             cloneCooldownBar.fillAmount = 1;
-            cloneCooldownBar.color = new Color(253/255f, 149/255f, 0);
+            cloneCooldownBar.color = new Color(253 / 255f, 149 / 255f, 0);
             yield return new WaitForSeconds(0.5f);
             cloneCooldownBar.color = Color.clear;
         }
-
     }
 }
