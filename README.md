@@ -13,3 +13,5 @@ obstacles.
 To play the game, pull from the release branch of this repo.
 
 You can open the source code of the game by opening as a project in Unity, or to play the game simply run the executable Run file included in the release branch in the directory salvation_of_mars/Executable/salvation_of_mars.exe 
+
+This game was created by Luke Wyeth, Jian Pineda, Breahem Bedi, Matthew Luthi and Cheryl Cheng for Software Development Practice
